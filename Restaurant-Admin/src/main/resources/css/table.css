@@ -1,0 +1,273 @@
+@import "employee.css";
+
+.main-bg {
+    -fx-background-color: #f4f6fb;
+}
+
+/* ================= TOPBAR ================= */
+.topbar {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.dashboard-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #0f1f44;
+}
+
+.dashboard-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #74839e;
+}
+
+.notify-btn {
+    -fx-background-color: #f3c13a;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-pref-width: 44;
+    -fx-pref-height: 44;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.notify-btn:hover {
+    -fx-background-color: #e5b32f;
+    -fx-effect: dropshadow(gaussian, rgba(243, 193, 58, 0.3), 10, 0, 0, 4);
+}
+
+/* ================= CARDS ================= */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-padding: 18;
+    -fx-border-color: #f0f4f8;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.02), 6, 0, 0, 1);
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6e7d97;
+    -fx-font-weight: bold;
+}
+
+.card-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #13203f;
+}
+
+.success-text {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #20c763;
+}
+
+.warning-text {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff9800;
+}
+
+/* ================= TABLE WRAPPER ================= */
+.table-wrapper {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-padding: 18;
+    -fx-border-color: #f0f4f8;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.02), 6, 0, 0, 1);
+}
+
+.table-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0f1f44;
+}
+
+.table-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #7b8aa5;
+}
+
+.create-btn {
+    -fx-background-color: #f3c13a;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 44;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-padding: 0 16 0 16;
+}
+
+.create-btn:hover {
+    -fx-background-color: #e5b32f;
+    -fx-effect: dropshadow(gaussian, rgba(243, 193, 58, 0.2), 8, 0, 0, 3);
+}
+
+/* ================= FILTER BUTTONS ================= */
+.filter-btn {
+    -fx-pref-height: 38;
+    -fx-min-height: 38;
+    -fx-max-height: 38;
+    -fx-pref-width: 120;
+    -fx-min-width: 120;
+    -fx-max-width: 120;
+    -fx-background-radius: 8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-padding: 0 16 0 16;
+    -fx-alignment: CENTER;
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #475569;
+}
+
+.filter-btn:hover {
+    -fx-background-color: #e2e8f0;
+}
+
+.filter-btn-active {
+    -fx-background-color: #f3c13a;
+    -fx-text-fill: white;
+}
+
+/* ================= GRID SCROLL & FLOWPANE ================= */
+.grid-scroll {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+.grid-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.flow-grid {
+    -fx-background-color: transparent;
+}
+
+/* ================= TABLE CARDS ================= */
+.table-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 8, 0, 0, 2);
+}
+
+.table-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0, 0, 4);
+}
+
+.card-empty {
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 12;
+}
+
+.card-occupied {
+    -fx-border-color: #fee2e2;
+    -fx-border-radius: 12;
+    -fx-background-color: #fffafb;
+}
+
+.card-reserved {
+    -fx-border-color: #fff4eb;
+    -fx-border-radius: 12;
+    -fx-background-color: #fffdfb;
+}
+
+.table-card-status {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 2 10 2 10;
+    -fx-background-radius: 6;
+}
+
+.tag-empty {
+    -fx-background-color: #e6f9ed;
+    -fx-text-fill: #20c763;
+}
+
+.tag-occupied {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #ef4444;
+}
+
+.tag-reserved {
+    -fx-background-color: #fff4eb;
+    -fx-text-fill: #ff9800;
+}
+
+.table-card-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #1e293b;
+}
+
+.table-card-capacity {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748b;
+}
+
+.table-card-action {
+    -fx-background-color: #f8fafc;
+    -fx-text-fill: #475569;
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 120;
+    -fx-pref-height: 30;
+    -fx-cursor: hand;
+}
+
+.table-card-action:hover {
+    -fx-background-color: #f3c13a;
+    -fx-text-fill: white;
+    -fx-border-color: #f3c13a;
+}
+
+/* ================= EDIT & DELETE BUTTONS ================= */
+.edit-btn {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 44;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-padding: 0 16 0 16;
+}
+
+.edit-btn:hover {
+    -fx-background-color: #2563eb;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.2), 8, 0, 0, 3);
+}
+
+.delete-btn {
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 44;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-padding: 0 16 0 16;
+}
+
+.delete-btn:hover {
+    -fx-background-color: #dc2626;
+    -fx-effect: dropshadow(gaussian, rgba(239, 68, 68, 0.2), 8, 0, 0, 3);
+}

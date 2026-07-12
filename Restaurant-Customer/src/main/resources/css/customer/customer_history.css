@@ -1,0 +1,74 @@
+/* Customer History Styles */
+
+.history-card {
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.04), 10, 0.1, 0, 4);
+    -fx-spacing: 15;
+    -fx-alignment: center-left;
+    -fx-border-color: #f1f5f9;
+    -fx-border-width: 1;
+}
+
+.history-card:hover {
+    -fx-border-color: #e2e8f0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.04), 12, 0.15, 0, 6);
+}
+
+.segment-button-container {
+    -fx-background-color: #f1f5f9;
+    -fx-background-radius: 14;
+    -fx-padding: 4;
+}
+
+.segment-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #64748b;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 10;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+
+.segment-button-active {
+    -fx-background-color: white;
+    -fx-text-fill: #0f172a;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 5, 0, 0, 2);
+}
+
+.order-code-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0f1f44;
+}
+
+.order-date-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #74839e;
+    -fx-font-weight: 500;
+}
+
+.order-price-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f3c13a;
+}
+
+.text-field {
+    -fx-pref-height: 44;
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.5;
+    -fx-font-size: 14px;
+    -fx-text-fill: #0f1f44;
+    -fx-padding: 0 15 0 15;
+}
+
+.text-field:focused {
+    -fx-border-color: #f3c13a;
+    -fx-effect: dropshadow(gaussian, rgba(243, 193, 58, 0.2), 6, 0, 0, 1);
+}

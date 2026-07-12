@@ -1,0 +1,141 @@
+/* order.css — Active Orders page styles.
+   Common styles (search-box, date-picker-box, card, buttons, status tags) 
+   are inherited from common.css. */
+@import "common.css";
+
+/* ================= ORDER SCROLL & CONTAINER ================= */
+.cards-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.cards-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.cards-container {
+    -fx-background-color: transparent;
+}
+
+/* ================= PREMIUM ORDER CARDS ================= */
+.order-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: #eef2f6;
+    -fx-border-width: 1;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(24, 36, 61, 0.04), 12, 0, 0, 6);
+    -fx-cursor: hand;
+}
+
+.order-card:hover {
+    -fx-border-color: #f3c13a;
+    -fx-effect: dropshadow(gaussian, rgba(243, 193, 58, 0.12), 16, 0, 0, 8);
+}
+
+/* Card Header */
+.card-table-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0f1f44;
+}
+
+.card-bill-id {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f3c13a;
+    -fx-background-color: #fef9c3;
+    -fx-padding: 2 8 2 8;
+    -fx-background-radius: 4;
+}
+
+.card-detail-line {
+    -fx-font-size: 13px;
+    -fx-text-fill: #74839e;
+}
+
+/* Card Items Section */
+.card-items-divider {
+    -fx-border-color: #f1f5f9 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 8 0 0 0;
+}
+
+.card-item-row {
+    -fx-padding: 4 0 4 0;
+}
+
+.card-item-text {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #1e293b;
+}
+
+/* Card Footer */
+.card-total-row {
+    -fx-border-color: #f1f5f9 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 8 0 0 0;
+}
+
+.card-total-text {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #0f1f44;
+}
+
+/* ================= ORDER STATUS BADGES ================= */
+.badge-sm {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 8 3 8;
+    -fx-background-radius: 6;
+    -fx-alignment: CENTER;
+}
+
+.badge-preparing {
+    -fx-background-color: #fff4eb;
+    -fx-text-fill: #ff9800;
+}
+
+.badge-cooking {
+    -fx-background-color: #edf2ff;
+    -fx-text-fill: #3b82f6;
+}
+
+.badge-completed {
+    -fx-background-color: #e6f9ed;
+    -fx-text-fill: #20c763;
+}
+
+.badge-served {
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #64748b;
+}
+
+/* ================= ORDER DETAIL DIALOG ================= */
+.dialog-header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0f1f44;
+}
+
+.dialog-section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #0f1f44;
+}
+
+.dialog-info-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #7b8aa5;
+}
+
+.dialog-info-value {
+    -fx-text-fill: #1a202c;
+    -fx-font-weight: bold;
+}

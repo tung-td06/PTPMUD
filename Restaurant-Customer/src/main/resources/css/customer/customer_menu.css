@@ -1,0 +1,25 @@
+/* Customer Menu Styles */
+
+/* Ensure ScrollPane inside menu page never collapses */
+.menu-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-min-height: 200;
+}
+
+.menu-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+/* FlowPane holding dish cards — always top-left aligned, never shifts */
+.menu-flow-pane {
+    -fx-background-color: transparent;
+    -fx-alignment: top-left;
+    -fx-pref-wrap-length: 1;
+    -fx-hgap: 22;
+    -fx-vgap: 22;
+    -fx-padding: 10 5 20 5;
+}

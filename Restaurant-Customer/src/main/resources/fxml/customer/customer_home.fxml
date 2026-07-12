@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" styleClass="root" 
+            stylesheets="@../../css/customer/common.css, @../../css/customer/component.css, @../../css/customer/customer_home.css" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="customer.controller.customerhome.CustomerHomeController">
+    <children>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" 
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox spacing="20.0">
+                    <padding>
+                        <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+                    </padding>
+                    <children>
+                        <!-- Banner -->
+                        <StackPane styleClass="banner-pane">
+                            <children>
+                                <VBox styleClass="banner-overlay" spacing="8.0">
+                                    <children>
+                                        <Label styleClass="banner-title" text="Chào mừng đến với Gourmet Hub!" />
+                                        <Label styleClass="banner-subtitle" text="Trải nghiệm ẩm thực thượng hạng, đặt bàn &amp; món ăn trực tuyến nhanh chóng." />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </StackPane>
+
+                        <!-- Search Bar -->
+                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                            <children>
+                                <TextField fx:id="txtSearch" prefHeight="44.0" prefWidth="350.0" 
+                                           promptText="Tìm món ăn yêu thích..." styleClass="text-input-field" />
+                                <Label styleClass="subtitle-label" text="Nhập tên món ăn để tìm kiếm nhanh" />
+                            </children>
+                        </HBox>
+
+                        <!-- Categories -->
+                        <VBox spacing="10.0">
+                            <children>
+                                <Label styleClass="section-title" text="Danh mục món ăn" />
+                                <ScrollPane fitToHeight="true" hbarPolicy="AS_NEEDED" vbarPolicy="NEVER" styleClass="category-scroll" style="-fx-background-color: transparent;">
+                                    <content>
+                                        <HBox fx:id="categoryBox" spacing="12.0">
+                                            <padding>
+                                                <Insets bottom="15.0" top="5.0" />
+                                            </padding>
+                                        </HBox>
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                        </VBox>
+
+                        <!-- Featured Dishes (Món Nổi Bật) -->
+                        <VBox fx:id="featuredSection" spacing="12.0">
+                            <children>
+                                <Label styleClass="section-title" text="🌟 Món nổi bật gợi ý" />
+                                <FlowPane fx:id="featuredPane" hgap="20.0" vgap="20.0" />
+                            </children>
+                        </VBox>
+
+                        <!-- Best Sellers (Bán Chạy) -->
+                        <VBox fx:id="bestSellerSection" spacing="12.0">
+                            <children>
+                                <Label styleClass="section-title" text="🔥 Bán chạy nhất tuần" />
+                                <FlowPane fx:id="bestSellerPane" hgap="20.0" vgap="20.0" />
+                            </children>
+                        </VBox>
+
+                        <!-- New Dishes (Món Mới) -->
+                        <VBox fx:id="newDishesSection" spacing="12.0">
+                            <children>
+                                <Label styleClass="section-title" text="✨ Món mới ra mắt" />
+                                <FlowPane fx:id="newDishesPane" hgap="20.0" vgap="20.0" />
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

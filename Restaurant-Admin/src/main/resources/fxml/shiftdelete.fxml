@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+ 
+<AnchorPane styleClass="add-bg" stylesheets="@../css/add.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shift.ShiftDeleteController">
+    <children>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <content>
+                <VBox spacing="20">
+                    <padding>
+                        <Insets bottom="24" left="24" right="24" top="24" />
+                    </padding>
+ 
+                    <!-- HEADER -->
+                    <HBox alignment="CENTER_LEFT" spacing="14" styleClass="add-header">
+                        <VBox spacing="3">
+                            <Label styleClass="add-title" text="Xóa phân ca làm việc" />
+                            <Label styleClass="add-subtitle" text="Xác nhận xóa lịch trực của nhân viên khỏi hệ thống" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="backBtn" onAction="#handleBack" styleClass="back-btn" text="← Quay lại" />
+                    </HBox>
+ 
+                    <!-- FORM CARD -->
+                    <VBox spacing="20" styleClass="form-card">
+ 
+                        <!-- Section Warning -->
+                        <VBox spacing="4" style="-fx-background-color: #fee2e2; -fx-padding: 14; -fx-background-radius: 10; -fx-border-color: #fecaca; -fx-border-width: 1; -fx-border-radius: 10;">
+                            <Label style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #991b1b;" text="Cảnh báo hành động" />
+                            <Label style="-fx-font-size: 13px; -fx-text-fill: #7f1d1d;" text="Hành động này không thể hoàn tác. Bạn có chắc chắn muốn xóa phân ca làm việc này?" />
+                        </VBox>
+ 
+                        <GridPane hgap="20" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                            </columnConstraints>
+ 
+                            <!-- Row 0 -->
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Label styleClass="field-label" text="Mã ca trực" />
+                                <TextField fx:id="txtMaCa" editable="false" styleClass="form-field" style="-fx-opacity: 0.7; -fx-background-color: #e2e8f0;" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <Label styleClass="field-label" text="Nhân viên trực ca" />
+                                <TextField fx:id="txtNhanVien" editable="false" styleClass="form-field" style="-fx-opacity: 0.7; -fx-background-color: #e2e8f0;" />
+                            </VBox>
+ 
+                            <!-- Row 1 -->
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label styleClass="field-label" text="Tên ca trực" />
+                                <TextField fx:id="txtTenCa" editable="false" styleClass="form-field" style="-fx-opacity: 0.7; -fx-background-color: #e2e8f0;" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label styleClass="field-label" text="Thời gian bắt đầu" />
+                                <TextField fx:id="txtGioBatDau" editable="false" styleClass="form-field" style="-fx-opacity: 0.7; -fx-background-color: #e2e8f0;" />
+                            </VBox>
+ 
+                            <!-- Row 2 -->
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                <Label styleClass="field-label" text="Thời gian kết thúc" />
+                                <TextField fx:id="txtGioKetThuc" editable="false" styleClass="form-field" style="-fx-opacity: 0.7; -fx-background-color: #e2e8f0;" />
+                            </VBox>
+                        </GridPane>
+ 
+                        <!-- Message -->
+                        <Label fx:id="lblMessage" styleClass="message-label" wrapText="true" />
+ 
+                        <!-- Buttons -->
+                        <HBox alignment="CENTER_RIGHT" spacing="12">
+                            <Button fx:id="cancelBtn" onAction="#handleCancel" styleClass="cancel-btn" text="Hủy bỏ" />
+                            <Button fx:id="deleteBtn" onAction="#handleDelete" styleClass="save-btn" style="-fx-background-color: #ef4444; -fx-text-fill: white;" text="Xác nhận xóa" />
+                        </HBox>
+                    </VBox>
+ 
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

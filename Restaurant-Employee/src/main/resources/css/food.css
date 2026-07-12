@@ -1,0 +1,6 @@
+/* food.css — Food management page styles.
+   Common styles (cards, table, buttons, status tags) are inherited from common.css via employee.css. */
+@import "employee.css";
+
+/* Food page uses filter-btn which is now already defined in common.css.
+   No additional overrides needed. All styles are unified via common.css. */

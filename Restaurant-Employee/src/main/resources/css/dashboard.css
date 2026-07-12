@@ -1,0 +1,119 @@
+/* dashboard.css — Dashboard layout styles.
+   Common styles (cards, table, buttons, status tags) are inherited from common.css via employee.css. */
+@import "employee.css";
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    -fx-background-color: white;
+    -fx-border-color: #ececec;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* ================= MENU BUTTONS ================= */
+.menu-btn,
+.menu-btn-active {
+    -fx-pref-height: 48;
+    -fx-background-radius: 12;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 20;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+    -fx-graphic-text-gap: 12;
+}
+
+.menu-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #556987;
+}
+
+.menu-btn:hover {
+    -fx-background-color: #f0f2f5;
+    -fx-text-fill: #13203f;
+}
+
+.menu-btn-active {
+    -fx-background-color: #f3c13a;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(243, 193, 58, 0.3), 10, 0, 0, 4);
+}
+
+.menu-icon {
+    -fx-min-width: 24px;
+    -fx-pref-width: 24px;
+    -fx-max-width: 24px;
+    -fx-alignment: CENTER;
+    -fx-font-size: 18px;
+}
+
+.menu-btn .menu-icon {
+    -fx-text-fill: #556987;
+}
+
+.menu-btn:hover .menu-icon {
+    -fx-text-fill: #13203f;
+}
+
+.menu-btn-active .menu-icon {
+    -fx-text-fill: white;
+}
+
+/* ================= PROFILE BOX ================= */
+.profile-box {
+    -fx-background-color: #f5f7fb;
+    -fx-background-radius: 14;
+    -fx-padding: 14;
+    -fx-border-color: #e8ebf0;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+}
+
+.profile-icon {
+    -fx-font-size: 24px;
+}
+
+.profile-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #18243d;
+}
+
+.profile-role {
+    -fx-font-size: 13px;
+    -fx-text-fill: #7a869f;
+}
+
+/* ================= LOGOUT BUTTON ================= */
+.logout-btn {
+    -fx-background-color: #ff5d5d;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 48;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-border-width: 0;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #ff4141;
+    -fx-effect: dropshadow(gaussian, rgba(255, 65, 65, 0.2), 8, 0, 0, 3);
+}
+
+.logout-btn:pressed {
+    -fx-background-color: #e03a3a;
+}
+
+/* ================= DASHBOARD SCROLL ================= */
+.dashboard-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.dashboard-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}

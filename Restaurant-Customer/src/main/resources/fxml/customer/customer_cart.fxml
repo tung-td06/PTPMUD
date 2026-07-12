@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="1200.0" styleClass="main-bg" 
+            stylesheets="@../../css/customer/common.css, @../../css/customer/component.css, @../../css/customer/customer_cart.css" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="customer.controller.cart.CustomerCartController">
+    <children>
+        <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+            </padding>
+            <children>
+                <!-- Title -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="title-label" text="Giỏ hàng của bạn" />
+                        <Label styleClass="subtitle-label" text="Xem và điều chỉnh các món ăn đã lựa chọn" />
+                    </children>
+                </VBox>
+
+                <!-- Split Container -->
+                <HBox spacing="25.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <!-- Left Panel: Cart Items List -->
+                        <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+                                    <content>
+                                        <VBox fx:id="cartItemsContainer" spacing="12.0">
+                                            <padding>
+                                                <Insets right="5.0" />
+                                            </padding>
+                                        </VBox>
+                                    </content>
+                                </ScrollPane>
+
+                                <HBox>
+                                    <children>
+                                        <Button fx:id="btnClearAll" onAction="#handleClearAll" styleClass="btn-secondary" text="🗑 Xóa tất cả" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+
+                        <!-- Right Panel: Summary -->
+                        <VBox prefWidth="350.0" styleClass="summary-card" alignment="TOP_CENTER" maxHeight="320.0">
+                            <children>
+                                <Label styleClass="summary-title" text="Tổng quan đơn hàng" maxWidth="1.7976931348623157E308" />
+
+                                <HBox styleClass="summary-row">
+                                    <children>
+                                        <Label styleClass="summary-label" text="Tổng số lượng:" />
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label fx:id="lblTotalCount" styleClass="summary-value" text="0 món" />
+                                    </children>
+                                </HBox>
+
+                                <HBox styleClass="summary-row">
+                                    <children>
+                                        <Label styleClass="summary-label" text="Tạm tính:" />
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label fx:id="lblSubtotal" styleClass="summary-value" text="0đ" />
+                                    </children>
+                                </HBox>
+
+                                <Region VBox.vgrow="ALWAYS" />
+
+                                <HBox styleClass="summary-row" style="-fx-border-color: #f1f5f9; -fx-border-width: 1 0 0 0; -fx-padding: 15 0 0 0;">
+                                    <children>
+                                        <Label styleClass="summary-total-label" text="Tổng cộng:" />
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label fx:id="lblGrandTotal" styleClass="summary-total-value" text="0đ" />
+                                    </children>
+                                </HBox>
+
+                                <Button fx:id="btnOrder" onAction="#handleOrder" styleClass="btn-primary" 
+                                        text="🍽 Gọi món" maxWidth="1.7976931348623157E308" prefHeight="48.0" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

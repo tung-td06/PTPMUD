@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane prefHeight="900" prefWidth="1600" styleClass="root" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dashboard.DashboardController">
+
+    <left>
+        <VBox prefWidth="310" spacing="22" styleClass="sidebar">
+            <padding>
+                <Insets bottom="26" left="22" right="22" top="26" />
+            </padding>
+
+            <HBox alignment="CENTER">
+                <ImageView fitWidth="230" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/dashboard.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent; -fx-padding: 0;">
+                <content>
+                    <VBox spacing="10" style="-fx-background-color: transparent;">
+                        <Button fx:id="dashboardBtn" prefWidth="265.0" styleClass="menu-btn-active" text="Dashboard">
+                            <graphic>
+                                <Label styleClass="menu-icon" text="🏠" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="tableBtn" prefWidth="265.0" styleClass="menu-btn" text="Bàn ăn">
+                            <graphic>
+                                <Label styleClass="menu-icon" text="🍽" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="orderBtn" prefWidth="265.0" styleClass="menu-btn" text="Món đang Order">
+                            <graphic>
+                                <Label styleClass="menu-icon" text="🍳" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="billBtn" prefWidth="265.0" styleClass="menu-btn" text="Hóa đơn">
+                            <graphic>
+                                <Label styleClass="menu-icon" text="📄" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="bookingBtn" prefWidth="265.0" styleClass="menu-btn" text="Đặt bàn">
+                            <graphic>
+                                <Label styleClass="menu-icon" text="📅" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="customerBtn" prefWidth="265.0" styleClass="menu-btn" text="Khách hàng">
+                            <graphic>
+                                <Label styleClass="menu-icon" text="👥" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="shiftBtn" prefWidth="265.0" styleClass="menu-btn" text="Ca làm việc">
+                            <graphic>
+                                <Label styleClass="menu-icon" text="⏰" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="profileBtn" prefWidth="265.0" styleClass="menu-btn" text="Hồ sơ">
+                            <graphic>
+                                <Label styleClass="menu-icon" text="👤" />
+                            </graphic>
+                        </Button>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <HBox alignment="CENTER_LEFT" spacing="14" styleClass="profile-box">
+                <Label styleClass="profile-icon" text="👤" />
+                <VBox spacing="3">
+                    <Label fx:id="lblProfileName" styleClass="profile-name" text="Admin" />
+                    <Label fx:id="lblProfileRole" styleClass="profile-role" text="Quản trị viên" />
+                </VBox>
+            </HBox>
+
+            <Button fx:id="logoutBtn" prefWidth="265.0" styleClass="logout-btn" text="⎋ Logout" />
+        </VBox>
+    </left>
+
+    <center>
+        <AnchorPane fx:id="contentArea" styleClass="main-bg">
+            <children>
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                            styleClass="dashboard-scroll"
+                            AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                    <content>
+                        <VBox spacing="20" style="-fx-padding: 20;">
+
+                    <HBox alignment="TOP_CENTER" spacing="14" styleClass="topbar">
+                        <VBox spacing="3">
+                            <Label styleClass="dashboard-title" text="Dashboard" />
+                            <Label fx:id="lblWelcome" styleClass="dashboard-subtitle" text="Welcome back, Admin 👋" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <ComboBox fx:id="timeComboBox" prefWidth="150" promptText="Thời gian" styleClass="search-box" />
+                            <DatePicker fx:id="fromDatePicker" prefWidth="130" promptText="Từ ngày" styleClass="date-picker-box" />
+                            <DatePicker fx:id="toDatePicker" prefWidth="130" promptText="Đến ngày" styleClass="date-picker-box" />
+                            <TextField fx:id="searchField" prefWidth="280" promptText="Tìm kiếm..." styleClass="search-box" />
+                        </HBox>
+                    </HBox>
+
+                    <!-- METRIC CARDS GRID -->
+                    <GridPane hgap="16" vgap="16" VBox.vgrow="SOMETIMES">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                            <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                            <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                            <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints vgrow="SOMETIMES" fillHeight="true" />
+                        </rowConstraints>
+                        <children>
+                            <!-- Row 0 -->
+                            <VBox spacing="10" styleClass="card" alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Label styleClass="card-title" text="⏰ Ca làm việc" />
+                                <Label fx:id="shiftLabel" styleClass="card-value" text="Chưa vào ca" />
+                                <Label styleClass="success-text" text="Thông tin ca hôm nay" />
+                            </VBox>
+
+                            <VBox spacing="10" styleClass="card" alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <Label styleClass="card-title" text="🍽 Bàn đang phục vụ" />
+                                <Label fx:id="activeTablesLabel" styleClass="card-value" text="0" />
+                                <Label styleClass="warning-text" text="Đang phục vụ khách" />
+                            </VBox>
+
+                            <VBox spacing="10" styleClass="card" alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                <Label styleClass="card-title" text="📄 HĐ chưa thanh toán" />
+                                <Label fx:id="pendingBillsLabel" styleClass="card-value" text="0" />
+                                <Label styleClass="warning-text" text="Khách đang dùng bữa" />
+                            </VBox>
+
+                            <VBox spacing="10" styleClass="card" alignment="CENTER_LEFT" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                                <Label styleClass="card-title" text="📅 Đơn đặt bàn hôm nay" />
+                                <Label fx:id="todayBookingsLabel" styleClass="card-value" text="0" />
+                                <Label styleClass="success-text" text="Lượt đặt bàn hôm nay" />
+                            </VBox>
+                        </children>
+                    </GridPane>
+
+                    <!-- STACKED TABLES (top-bottom) -->
+                    <VBox spacing="16" VBox.vgrow="ALWAYS">
+                        <!-- TOP TABLE: RECENT BILLS -->
+                        <VBox spacing="12" styleClass="table-wrapper" prefHeight="480">
+                            <HBox alignment="CENTER_LEFT">
+                                <VBox spacing="4">
+                                    <Label styleClass="table-title" text="Hóa đơn gần đây" />
+                                    <Label styleClass="table-subtitle" text="Danh sách giao dịch hôm nay" />
+                                </VBox>
+                            </HBox>
+
+
+
+                            <TableView fx:id="billTable" styleClass="modern-table" prefHeight="320" VBox.vgrow="ALWAYS">
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                                <columns>
+                                    <TableColumn fx:id="idColumn" minWidth="80" text="Mã HD" />
+                                    <TableColumn fx:id="customerColumn" minWidth="180" text="Khách hàng" />
+                                    <TableColumn fx:id="tableColumn" minWidth="110" text="Bàn" />
+                                    <TableColumn fx:id="totalColumn" minWidth="150" text="Tổng tiền" />
+                                    <TableColumn fx:id="paymentColumn" minWidth="140" text="Thanh toán" />
+                                    <TableColumn fx:id="statusColumn" minWidth="140" text="Trạng thái" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+
+                        <!-- BOTTOM TABLE: TOP SELLING FOODS -->
+                        <VBox spacing="12" styleClass="table-wrapper" prefHeight="400" VBox.vgrow="ALWAYS">
+                            <HBox alignment="CENTER_LEFT">
+                                <VBox spacing="4">
+                                    <Label styleClass="table-title" text="Top món bán chạy" />
+                                    <Label styleClass="table-subtitle" text="Sản phẩm bán chạy nhất trong tuần" />
+                                </VBox>
+                            </HBox>
+
+                            <TableView fx:id="topFoodsTable" styleClass="modern-table" prefHeight="260" VBox.vgrow="ALWAYS">
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                                <columns>
+                                    <TableColumn fx:id="foodIdColumn" minWidth="100" text="Mã món" />
+                                    <TableColumn fx:id="foodNameColumn" minWidth="300" text="Tên món ăn" />
+                                    <TableColumn fx:id="foodPriceColumn" minWidth="180" text="Đơn giá" />
+                                    <TableColumn fx:id="foodSoldColumn" minWidth="120" text="Đã bán" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </VBox>
+
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

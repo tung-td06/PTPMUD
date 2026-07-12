@@ -1,0 +1,1 @@
+// This file was moved to model/MonAn.java and is kept empty here to avoid compilation errors in the root package.

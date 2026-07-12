@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" styleClass="main-bg" 
+            stylesheets="@../../css/customer/common.css, @../../css/customer/component.css, @../../css/customer/customer_profile.css" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="customer.controller.profile.CustomerProfileController">
+    <children>
+        <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+            </padding>
+            <children>
+                <!-- Title -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="title-label" text="Tài khoản cá nhân" />
+                        <Label styleClass="subtitle-label" text="Quản lý thông tin liên hệ và đổi mật khẩu bảo mật" />
+                    </children>
+                </VBox>
+
+                <!-- Profile main Grid -->
+                <HBox spacing="25.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <!-- Left Panel: Summary avatar -->
+                        <VBox styleClass="profile-card" prefWidth="350.0" alignment="TOP_CENTER" maxHeight="380.0">
+                            <children>
+                                <HBox styleClass="profile-avatar-large">
+                                    <children>
+                                        <Label styleClass="profile-avatar-lbl" text="👤" />
+                                    </children>
+                                </HBox>
+
+                                <VBox spacing="5.0" alignment="CENTER">
+                                    <children>
+                                        <Label fx:id="lblSummaryName" styleClass="title-label" style="-fx-font-size: 22px;" text="Tên khách hàng" />
+                                        <Label fx:id="lblSummaryRole" styleClass="subtitle-label" text="Khách hàng thân thiết" />
+                                    </children>
+                                </VBox>
+
+                                <VBox spacing="8.0" alignment="CENTER" style="-fx-background-color: #f0fdf4; -fx-background-radius: 12; -fx-padding: 15; -fx-min-width: 250;">
+                                    <children>
+                                        <Label style="-fx-font-size: 13px; -fx-font-weight: 700; -fx-text-fill: #166534;" text="Điểm tích lũy hiện có" />
+                                        <Label fx:id="lblSummaryPoints" styleClass="profile-points-large" text="0 điểm" />
+                                    </children>
+                                </VBox>
+
+                                <Region VBox.vgrow="ALWAYS" />
+
+
+                            </children>
+                        </VBox>
+
+                        <!-- Right Panel: Forms -->
+                        <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <!-- Form 1: Edit Details -->
+                                <VBox styleClass="profile-card">
+                                    <children>
+                                        <Label styleClass="card-section-title" text="Thông tin liên hệ" />
+                                        
+                                        <HBox spacing="20.0">
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                            <children>
+                                                <!-- Username (Readonly) -->
+                                                <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label styleClass="form-label" text="Tên đăng nhập (Username):" />
+                                                        <TextField fx:id="txtUsername" prefHeight="44.0" styleClass="text-input-field, text-input-readonly" editable="false" />
+                                                    </children>
+                                                </VBox>
+
+                                                <!-- Phone -->
+                                                <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label styleClass="form-label" text="Số điện thoại:" />
+                                                        <TextField fx:id="txtPhone" prefHeight="44.0" styleClass="text-input-field" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+
+                                        <!-- Fullname -->
+                                        <VBox spacing="6.0" style="-fx-padding: 12 0 0 0;">
+                                            <children>
+                                                <Label styleClass="form-label" text="Họ tên khách hàng:" />
+                                                <TextField fx:id="txtName" prefHeight="44.0" styleClass="text-input-field" />
+                                            </children>
+                                        </VBox>
+
+                                        <HBox alignment="CENTER_RIGHT" style="-fx-padding: 15 0 0 0;">
+                                            <children>
+                                                <Button fx:id="btnSaveProfile" onAction="#handleSaveProfile" styleClass="btn-primary" text="💾 Lưu thay đổi" prefWidth="150.0" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+                                <!-- Form 2: Change Password -->
+                                <VBox styleClass="profile-card">
+                                    <children>
+                                        <Label style="-fx-font-size: 16px; -fx-font-weight: 700; -fx-text-fill: #1e293b;" text="Bảo mật tài khoản (Đổi mật khẩu)" />
+                                        
+                                        <HBox spacing="15.0" style="-fx-padding: 10 0 0 0;">
+                                            <children>
+                                                <!-- Old Pwd -->
+                                                <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label styleClass="form-label" text="Mật khẩu hiện tại:" />
+                                                        <PasswordField fx:id="txtOldPassword" prefHeight="44.0" styleClass="text-input-field" />
+                                                    </children>
+                                                </VBox>
+
+                                                <!-- New Pwd -->
+                                                <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label styleClass="form-label" text="Mật khẩu mới:" />
+                                                        <PasswordField fx:id="txtNewPassword" prefHeight="44.0" styleClass="text-input-field" />
+                                                    </children>
+                                                </VBox>
+
+                                                <!-- Confirm Pwd -->
+                                                <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label styleClass="form-label" text="Xác nhận mật khẩu:" />
+                                                        <PasswordField fx:id="txtConfirmPassword" prefHeight="44.0" styleClass="text-input-field" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+
+                                        <HBox alignment="CENTER_RIGHT" style="-fx-padding: 15 0 0 0;">
+                                            <children>
+                                                <Button fx:id="btnChangePassword" onAction="#handleChangePassword" styleClass="btn-primary" text="🔑 Đổi mật khẩu" prefWidth="150.0" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

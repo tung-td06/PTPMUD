@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane styleClass="add-bg" stylesheets="@../css/recipeadd.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipe.RecipeEditController">
+    <children>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <content>
+                <VBox spacing="20">
+                    <padding><Insets bottom="24" left="24" right="24" top="24" /></padding>
+
+                    <HBox alignment="CENTER_LEFT" spacing="14" styleClass="add-header">
+                        <VBox spacing="3">
+                            <Label styleClass="add-title" text="Sửa định lượng món" />
+                            <Label styleClass="add-subtitle" text="Cập nhật tỷ lệ định lượng nguyên liệu" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="backBtn" onAction="#handleBack" styleClass="back-btn" text="← Quay lại" />
+                    </HBox>
+
+                    <VBox spacing="20" styleClass="form-card">
+                        <VBox spacing="4">
+                            <Label styleClass="form-section-title" text="🍲 Cập nhật tỷ lệ" />
+                            <Label styleClass="form-section-subtitle" text="Chỉnh sửa định lượng của nguyên liệu cho món ăn này" />
+                        </VBox>
+
+                        <GridPane hgap="20" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                            </columnConstraints>
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Label styleClass="field-label" text="Mã món ăn" />
+                                <TextField fx:id="txtMamon" styleClass="form-field" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <Label styleClass="field-label" text="Tên món ăn" />
+                                <TextField fx:id="txtTenmon" styleClass="form-field" />
+                            </VBox>
+
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label styleClass="field-label" text="Mã nguyên liệu" />
+                                <TextField fx:id="txtMaNguyenLieu" styleClass="form-field" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label styleClass="field-label" text="Tên nguyên liệu" />
+                                <TextField fx:id="txtTenNguyenLieu" styleClass="form-field" />
+                            </VBox>
+
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                <HBox spacing="2"><Label styleClass="field-label" text="Định lượng" /><Label styleClass="field-required" text="*" /></HBox>
+                                <TextField fx:id="txtDinhLuong" styleClass="form-field" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <HBox spacing="2"><Label styleClass="field-label" text="Đơn vị tính" /></HBox>
+                                <TextField fx:id="txtDonVi" styleClass="form-field" />
+                            </VBox>
+                        </GridPane>
+
+                        <Label fx:id="lblMessage" styleClass="message-label" wrapText="true" />
+
+                        <HBox alignment="CENTER_RIGHT" spacing="12">
+                            <Button fx:id="cancelBtn" onAction="#handleCancel" styleClass="cancel-btn" text="Hủy bỏ" />
+                            <Button fx:id="saveBtn" onAction="#handleSave" styleClass="save-btn" text="💾 Lưu thay đổi" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

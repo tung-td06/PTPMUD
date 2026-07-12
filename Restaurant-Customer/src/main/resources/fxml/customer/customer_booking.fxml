@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" styleClass="main-bg" 
+            stylesheets="@../../css/customer/common.css, @../../css/customer/component.css, @../../css/customer/customer_booking.css" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="customer.controller.booking.CustomerBookingController">
+    <children>
+        <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+            </padding>
+            <children>
+                <!-- Title & Subtitle -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="title-label" text="Đặt bàn trực tuyến" />
+                        <Label styleClass="subtitle-label" text="Lên lịch và đặt bàn trước để được phục vụ tốt nhất" />
+                    </children>
+                </VBox>
+
+                <!-- Booking Form Card -->
+                <VBox styleClass="booking-form-card" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label styleClass="card-section-title-bordered" text="📅 Thông tin đặt bàn" />
+                        
+                        <GridPane hgap="20.0" vgap="18.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50.0" />
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50.0" />
+                            </columnConstraints>
+                            <children>
+                                <!-- Date -->
+                                <VBox styleClass="form-group" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
+                                    <children>
+                                        <Label styleClass="form-label" text="Chọn ngày đặt:" />
+                                        <DatePicker fx:id="dpDate" prefHeight="44.0" maxWidth="1.7976931348623157E308" />
+                                    </children>
+                                </VBox>
+
+                                <!-- Time In -->
+                                <VBox styleClass="form-group" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label styleClass="form-label" text="Giờ vào:" />
+                                        <HBox spacing="8.0" alignment="CENTER">
+                                            <children>
+                                                <ComboBox fx:id="cmbHourIn" prefHeight="44.0" styleClass="combobox-filter" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                                                <Label text=":" styleClass="time-separator" />
+                                                <ComboBox fx:id="cmbMinIn" prefHeight="44.0" styleClass="combobox-filter" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+                                <!-- Time Out -->
+                                <VBox styleClass="form-group" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label styleClass="form-label" text="Giờ ra (Dự kiến):" />
+                                        <HBox spacing="8.0" alignment="CENTER">
+                                            <children>
+                                                <ComboBox fx:id="cmbHourOut" prefHeight="44.0" styleClass="combobox-filter" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                                                <Label text=":" styleClass="time-separator" />
+                                                <ComboBox fx:id="cmbMinOut" prefHeight="44.0" styleClass="combobox-filter" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+                                <!-- Guests -->
+                                <VBox styleClass="form-group" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                    <children>
+                                        <Label styleClass="form-label" text="Số người:" />
+                                        <ComboBox fx:id="cmbGuests" prefHeight="44.0" maxWidth="1.7976931348623157E308" styleClass="combobox-filter" />
+                                    </children>
+                                </VBox>
+
+                                <!-- Table selection -->
+                                <VBox styleClass="form-group" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <children>
+                                        <Label styleClass="form-label" text="Chọn bàn:" />
+                                        <ComboBox fx:id="cmbTable" prefHeight="44.0" maxWidth="1.7976931348623157E308" styleClass="combobox-filter" />
+                                    </children>
+                                </VBox>
+
+                                <!-- Note -->
+                                <VBox styleClass="form-group" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2">
+                                    <children>
+                                        <Label styleClass="form-label" text="Ghi chú thêm:" />
+                                        <TextField fx:id="txtNote" prefHeight="44.0" promptText="Ghi chú yêu cầu đặc biệt như trang trí sinh nhật, ghế em bé..." styleClass="text-input-field" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </GridPane>
+
+                        <HBox spacing="15.0">
+                            <padding>
+                                <Insets top="15.0" />
+                            </padding>
+                            <children>
+                                
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Button fx:id="btnBook" onAction="#handleBook" styleClass="btn-primary" text="📅 Đặt bàn ngay" prefWidth="180.0" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

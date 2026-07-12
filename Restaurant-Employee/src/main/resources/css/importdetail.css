@@ -1,0 +1,4 @@
+/* importdetail.css — Import Detail management page styles.
+   All common styles are inherited from common.css via employee.css.
+   Import chain: importdetail.css -> employee.css -> common.css */
+@import "employee.css";

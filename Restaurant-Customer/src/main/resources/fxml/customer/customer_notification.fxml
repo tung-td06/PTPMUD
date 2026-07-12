@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" styleClass="main-bg" 
+            stylesheets="@../../css/customer/common.css, @../../css/customer/component.css, @../../css/customer/customer_notification.css" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="customer.controller.notification.CustomerNotificationController">
+    <children>
+        <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+            </padding>
+            <children>
+                <!-- Header -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="title-label" text="Thông báo của bạn" />
+                        <Label styleClass="subtitle-label" text="Cập nhật mới nhất về đơn hàng, đặt bàn và chương trình khuyến mãi" />
+                    </children>
+                </VBox>
+
+                <!-- Notifications list Scroll -->
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+                    <content>
+                        <VBox fx:id="notificationsContainer" spacing="15.0">
+                            <padding>
+                                <Insets right="5.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

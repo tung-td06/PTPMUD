@@ -1,0 +1,97 @@
+/* Customer Order Detail & Timeline Styles */
+
+.order-detail-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: #f0f4f8;
+    -fx-border-width: 1;
+    -fx-padding: 24;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.03), 8, 0, 0, 2);
+    -fx-spacing: 20;
+}
+
+/* Timeline */
+.timeline-container {
+    -fx-alignment: center;
+    -fx-spacing: 8;
+    -fx-padding: 15;
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 12;
+}
+
+.timeline-step {
+    -fx-alignment: center;
+    -fx-spacing: 6;
+    -fx-padding: 8;
+}
+
+.step-circle {
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-background-radius: 16;
+    -fx-background-color: #cbd5e1;
+    -fx-alignment: center;
+}
+
+.step-circle-active {
+    -fx-background-color: #f3c13a;
+}
+
+.step-circle-completed {
+    -fx-background-color: #22c55e;
+}
+
+.step-icon {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.step-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #74839e;
+}
+
+.step-label-active {
+    -fx-text-fill: #f3c13a;
+}
+
+.step-label-completed {
+    -fx-text-fill: #22c55e;
+}
+
+.timeline-arrow {
+    -fx-font-size: 16px;
+    -fx-text-fill: #94a3b8;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-padding: 0 5 8 5;
+}
+
+/* Items inside detail */
+.detail-item-row {
+    -fx-alignment: center-left;
+    -fx-spacing: 15;
+    -fx-padding: 8;
+    -fx-border-color: #f1f5f9;
+    -fx-border-width: 0 0 1 0;
+}
+
+.detail-item-name {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #0f1f44;
+}
+
+.detail-item-details {
+    -fx-font-size: 12px;
+    -fx-text-fill: #74839e;
+}
+
+.detail-item-price {
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #475569;
+}

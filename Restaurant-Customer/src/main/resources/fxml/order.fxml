@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane styleClass="main-bg" stylesheets="@../css/order.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="order.OrderController">
+    <children>
+        <VBox spacing="20" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+            
+            <!-- TOP BAR -->
+            <VBox spacing="10" styleClass="topbar">
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="3">
+                        <Label styleClass="dashboard-title" text="Order" />
+                        <Label styleClass="dashboard-subtitle" text="Quản lý các đơn gọi món trong nhà hàng" />
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <DatePicker fx:id="dpFrom" prefWidth="130" promptText="Từ ngày" styleClass="date-picker-box" />
+                        <DatePicker fx:id="dpTo" prefWidth="130" promptText="Đến ngày" styleClass="date-picker-box" />
+                        <TextField fx:id="searchField" prefWidth="250" promptText="Tìm mã order, bàn, nhân viên..." styleClass="search-box" />
+                    </HBox>
+                </HBox>
+            </VBox>
+
+            <!-- STATS CARDS -->
+            <HBox spacing="16" VBox.vgrow="SOMETIMES">
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-title" text="📋 Tổng số đơn" />
+                    <Label fx:id="totalOrdersLabel" styleClass="card-value" text="0" />
+                    <Label styleClass="success-text" text="Tất cả các trạng thái" />
+                </VBox>
+
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-title" text="⚡ Đang order &amp; Phục vụ" />
+                    <Label fx:id="activeOrdersLabel" styleClass="card-value" text="0" />
+                    <Label styleClass="warning-text" text="Đang được xử lý" />
+                </VBox>
+
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-title" text="💵 Tổng doanh thu ước tính" />
+                    <Label fx:id="totalRevenueLabel" styleClass="card-value" text="0 VNĐ" />
+                    <Label styleClass="success-text" text="Từ đơn hoàn thành" />
+                </VBox>
+            </HBox>
+
+            <!-- FILTERS BELOW CARDS -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <ComboBox fx:id="filterStatusCombo" prefWidth="130" promptText="Trạng thái" styleClass="search-box" />
+                <ComboBox fx:id="filterTableCombo" prefWidth="100" promptText="Bàn" styleClass="search-box" />
+                <ComboBox fx:id="filterEmployeeCombo" prefWidth="150" promptText="Nhân viên" styleClass="search-box" />
+            </HBox>
+
+            <!-- TABLE WRAPPER -->
+            <VBox spacing="14" styleClass="table-wrapper" VBox.vgrow="ALWAYS">
+                <HBox alignment="CENTER_LEFT">
+                    <VBox spacing="4">
+                        <Label styleClass="table-title" text="Danh sách đơn hàng" />
+                        <Label styleClass="table-subtitle" text="Chi tiết các đơn gọi món thực khách đang order" />
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Button fx:id="viewDetailBtn" onAction="#handleViewDetail" styleClass="edit-btn" style="-fx-background-color: #10b981; -fx-text-fill: white;" text="👁 Xem chi tiết" />
+                        <Button fx:id="createBtn" onAction="#handleAddNew" styleClass="create-btn" text="+ Thêm Order mới" />
+                        <Button fx:id="editBtn" onAction="#handleEdit" styleClass="edit-btn" text="📝 Sửa" />
+                        <Button fx:id="deleteBtn" onAction="#handleDelete" styleClass="delete-btn" text="Xóa" />
+                    </HBox>
+                </HBox>
+
+                <StackPane VBox.vgrow="ALWAYS">
+                    <TableView fx:id="orderTable" styleClass="modern-table" minHeight="100" minWidth="100">
+                        <columnResizePolicy>
+                            <TableView fx:constant="UNCONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="colStt" minWidth="60" prefWidth="60" text="STT" />
+                            <TableColumn fx:id="colMaOrder" minWidth="100" prefWidth="110" text="Mã Order" />
+                            <TableColumn fx:id="colMaban" minWidth="80" prefWidth="90" text="Bàn" />
+                            <TableColumn fx:id="colManv" minWidth="140" prefWidth="160" text="Nhân viên" />
+                            <TableColumn fx:id="colMahd" minWidth="100" prefWidth="110" text="Hóa đơn" />
+                            <TableColumn fx:id="colNgaytao" minWidth="130" prefWidth="150" text="Ngày tạo" />
+                            <TableColumn fx:id="colTrangthai" minWidth="120" prefWidth="130" text="Trạng thái" />
+                            <TableColumn fx:id="colTongMon" minWidth="90" prefWidth="90" text="Tổng món" />
+                            <TableColumn fx:id="colTongSoLuong" minWidth="110" prefWidth="110" text="Tổng số lượng" />
+                            <TableColumn fx:id="colTongTien" minWidth="140" prefWidth="150" text="Tổng tiền" />
+                        </columns>
+                    </TableView>
+                    
+                    <!-- Empty State Pane -->
+                    <VBox fx:id="emptyStatePane" alignment="CENTER" spacing="10" style="-fx-background-color: white;" visible="false">
+                        <Label style="-fx-font-size: 48px;" text="* " />
+                        <Label styleClass="table-subtitle" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #74839e;" text="Không có đơn order" />
+                    </VBox>
+                    
+                    <!-- Loading Overlay -->
+                    <VBox fx:id="loadingOverlay" alignment="CENTER" spacing="15" style="-fx-background-color: rgba(255, 255, 255, 0.75);" visible="false">
+                        <ProgressIndicator fx:id="progressIndicator" style="-fx-progress-color: #f3c13a;" />
+                        <Label styleClass="table-subtitle" text="Đang tải dữ liệu..." />
+                    </VBox>
+                </StackPane>
+            </VBox>
+            
+        </VBox>
+    </children>
+</AnchorPane>

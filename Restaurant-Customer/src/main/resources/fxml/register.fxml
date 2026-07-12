@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Login.RegisterController"
+      stylesheets="@../css/login.css"
+      styleClass="root"
+      prefWidth="1600"
+      prefHeight="900">
+
+    <StackPane styleClass="left-pane"
+               HBox.hgrow="ALWAYS" />
+
+    <VBox alignment="CENTER"
+          styleClass="right-pane"
+          HBox.hgrow="SOMETIMES">
+        <children>
+            <VBox alignment="CENTER"
+                  spacing="16"
+                  prefWidth="450"
+                  maxWidth="450"
+                  styleClass="login-card">
+                
+                <padding>
+                    <Insets top="30" right="40" bottom="30" left="40"/>
+                </padding>
+
+                <ImageView fitWidth="180" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/logo.png"/>
+                    </image>
+                </ImageView>
+
+                <VBox alignment="CENTER" spacing="4">
+                    <Label text="Đăng ký" styleClass="title-label" style="-fx-font-size: 38px;"/>
+                    <Label text="Tạo tài khoản khách hàng mới" styleClass="sub-label" style="-fx-font-size: 14px;"/>
+                </VBox>
+
+                <TextField fx:id="txtFullName"
+                           promptText="Họ và tên (*)"
+                           styleClass="login-field"
+                           maxWidth="1.7976931348623157E308"/>
+
+                <TextField fx:id="txtPhone"
+                           promptText="Số điện thoại (*)"
+                           styleClass="login-field"
+                           maxWidth="1.7976931348623157E308"/>
+
+                <TextField fx:id="txtUsername"
+                           promptText="Tên đăng nhập (*)"
+                           styleClass="login-field"
+                           maxWidth="1.7976931348623157E308"/>
+
+                <PasswordField fx:id="txtPassword"
+                               promptText="Mật khẩu (*)"
+                               styleClass="login-field"
+                               maxWidth="1.7976931348623157E308"/>
+
+                <PasswordField fx:id="txtRetypePassword"
+                               promptText="Nhập lại mật khẩu (*)"
+                               styleClass="login-field"
+                               maxWidth="1.7976931348623157E308"/>
+
+                <Button fx:id="btnRegister"
+                        text="ĐĂNG KÝ"
+                        onAction="#handleRegister"
+                        maxWidth="1.7976931348623157E308"
+                        styleClass="login-button"/>
+
+                <HBox alignment="CENTER" spacing="5">
+                    <Label text="Đã có tài khoản?" styleClass="sub-label" style="-fx-font-size: 14px;"/>
+                    <Button fx:id="btnGoLogin" text="Đăng nhập ngay" onAction="#handleGoLogin" style="-fx-background-color: transparent; -fx-text-fill: #f3c13a; -fx-cursor: hand; -fx-underline: true; -fx-font-weight: bold; -fx-padding: 0;"/>
+                </HBox>
+
+                <Label fx:id="lblMessage"
+                       text=""
+                       wrapText="true"
+                       alignment="CENTER"
+                       maxWidth="1.7976931348623157E308"
+                       styleClass="message-label"
+                       visible="false"
+                       managed="false"/>
+            </VBox>
+        </children>
+    </VBox>
+</HBox>

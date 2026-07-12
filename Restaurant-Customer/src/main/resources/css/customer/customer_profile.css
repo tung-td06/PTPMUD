@@ -1,0 +1,45 @@
+/* Customer Profile Styles */
+
+.profile-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: #f0f4f8;
+    -fx-border-width: 1;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.04), 10, 0, 0, 2);
+    -fx-spacing: 20;
+}
+
+.profile-avatar-large {
+    -fx-min-width: 80;
+    -fx-min-height: 80;
+    -fx-background-radius: 40;
+    -fx-background-color: #fef08a;
+    -fx-alignment: center;
+}
+
+.profile-avatar-lbl {
+    -fx-font-size: 32px;
+}
+
+.profile-points-large {
+    -fx-font-size: 26px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #15803d;
+}
+
+.points-box-card {
+    -fx-background-color: #f0fdf4;
+    -fx-background-radius: 12;
+    -fx-padding: 15;
+    -fx-min-width: 250;
+    -fx-alignment: center;
+}
+
+.points-box-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #166534;
+}
+

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="1200.0" styleClass="main-bg" 
+            stylesheets="@../../css/customer/common.css, @../../css/customer/component.css, @../../css/customer/customer_checkout.css" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="customer.controller.payment.CustomerPaymentController">
+    <children>
+        <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+            </padding>
+            <children>
+                <!-- Title -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="title-label" text="Thanh toán hóa đơn" />
+                        <Label styleClass="subtitle-label" text="Vui lòng kiểm tra lại danh sách các đơn hàng đã dùng trong lượt đặt bàn này" />
+                    </children>
+                </VBox>
+
+                <!-- Grid layout -->
+                <HBox spacing="25.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <!-- Left Column: Consolidated Unpaid Orders List -->
+                        <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="checkout-section-title" text="Danh sách các đơn đặt món chưa thanh toán" />
+                                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS" styleClass="transparent-scroll">
+                                    <content>
+                                        <VBox fx:id="ordersContainer" spacing="15.0" />
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                        </VBox>
+
+                        <!-- Right Column: Summary Card -->
+                        <VBox prefWidth="420.0" styleClass="checkout-card" spacing="15.0">
+                            <children>
+                                <Label styleClass="checkout-section-title" text="Thông tin thanh toán" />
+                                
+                                <VBox spacing="10.0" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <HBox styleClass="checkout-info-row">
+                                            <children>
+                                                <Label styleClass="checkout-info-label" text="Bàn ăn:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblTableName" styleClass="checkout-info-value" text="Chưa xác định" />
+                                            </children>
+                                        </HBox>
+                                        <HBox styleClass="checkout-info-row">
+                                            <children>
+                                                <Label styleClass="checkout-info-label" text="Mã đặt bàn:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblBookingCode" styleClass="checkout-info-value" text="Chưa xác định" />
+                                            </children>
+                                        </HBox>
+                                        <HBox styleClass="checkout-info-row">
+                                            <children>
+                                                <Label styleClass="checkout-info-label" text="Thời gian nhận bàn:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblCheckInTime" styleClass="checkout-info-value" text="Chưa xác định" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+                                <!-- Payment Method selection -->
+                                <VBox spacing="8.0" styleClass="calculation-divider-thin">
+                                    <padding>
+                                        <Insets top="10.0" bottom="10.0"/>
+                                    </padding>
+                                    <children>
+                                        <Label styleClass="checkout-info-label" text="Hình thức thanh toán:" style="-fx-font-weight: bold; -fx-text-fill: #0f1f44;"/>
+                                        <HBox spacing="20.0" alignment="CENTER_LEFT">
+                                            <children>
+                                                <RadioButton fx:id="radTransfer" text="Chuyển khoản" selected="true" style="-fx-font-size: 13px; -fx-text-fill: #334155; -fx-font-weight: bold; -fx-cursor: hand;">
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="paymentMethodGroup"/>
+                                                    </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="radCash" text="Tiền mặt" toggleGroup="$paymentMethodGroup" style="-fx-font-size: 13px; -fx-text-fill: #334155; -fx-font-weight: bold; -fx-cursor: hand;"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+                                <!-- Loyalty Points Deduction -->
+                                <VBox spacing="8.0" styleClass="calculation-divider-thin">
+                                    <padding>
+                                        <Insets top="10.0" bottom="10.0"/>
+                                    </padding>
+                                    <children>
+                                        <Label styleClass="checkout-info-label" text="Điểm tích lũy:" style="-fx-font-weight: bold; -fx-text-fill: #0f1f44;"/>
+                                        <CheckBox fx:id="chkUsePoints" text="Sử dụng điểm tích lũy" onAction="#handleUsePointsToggle" style="-fx-font-size: 13px; -fx-text-fill: #334155; -fx-font-weight: bold; -fx-cursor: hand;"/>
+                                        <Label fx:id="lblPointsBalance" text="Điểm hiện có: 0 điểm" style="-fx-text-fill: #64748b; -fx-font-size: 12px;"/>
+                                    </children>
+                                </VBox>
+
+                                <!-- Calculations -->
+                                <VBox spacing="10.0" styleClass="calculation-divider">
+                                    <children>
+                                        <HBox styleClass="summary-row">
+                                            <children>
+                                                <Label styleClass="summary-label" text="Tạm tính:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblSubtotal" styleClass="summary-value" text="0đ" />
+                                            </children>
+                                        </HBox>
+
+                                        <HBox fx:id="rowDiscount" styleClass="summary-row" visible="false" managed="false">
+                                            <children>
+                                                <Label styleClass="summary-label" text="Giảm giá (Điểm):" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblDiscount" styleClass="summary-value" text="-0đ" style="-fx-text-fill: #dc2626; -fx-font-weight: bold;" />
+                                            </children>
+                                        </HBox>
+
+                                        <HBox fx:id="rowPointsEarned" styleClass="summary-row">
+                                            <children>
+                                                <Label styleClass="summary-label" text="Điểm nhận được:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblPointsEarned" styleClass="summary-value" text="+0 điểm" style="-fx-text-fill: #15803d; -fx-font-weight: bold;" />
+                                            </children>
+                                        </HBox>
+
+                                        <HBox styleClass="summary-row, calculation-divider-thin">
+                                            <children>
+                                                <Label styleClass="summary-total-label" text="Tổng tiền cần trả:" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="lblGrandTotal" styleClass="summary-total-value" text="0đ" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+
+                                <!-- Buttons -->
+                                <VBox spacing="12.0">
+                                    <padding>
+                                        <Insets top="15.0" />
+                                    </padding>
+                                    <children>
+                                        <Button fx:id="btnPayConfirm" onAction="#handleRequestPayment" styleClass="btn-primary" 
+                                                text="💳 Thanh toán" maxWidth="1.7976931348623157E308" prefHeight="48.0" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

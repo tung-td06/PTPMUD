@@ -1,0 +1,62 @@
+/* Customer Checkout Page Styles */
+
+.checkout-card {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-padding: 24;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.04), 10, 0.1, 0, 4);
+    -fx-spacing: 16;
+}
+
+.checkout-section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1e293b;
+    -fx-border-color: #f1f5f9;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 8 0;
+}
+
+.checkout-info-row {
+    -fx-alignment: center-left;
+    -fx-spacing: 10;
+    -fx-padding: 4 0 4 0;
+}
+
+.checkout-info-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #64748b;
+}
+
+.checkout-info-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1e293b;
+}
+
+/* Items details row */
+.checkout-item-row {
+    -fx-alignment: center-left;
+    -fx-spacing: 15;
+    -fx-padding: 6 0 6 0;
+    -fx-border-color: #f8fafc;
+    -fx-border-width: 0 0 1 0;
+}
+
+.checkout-item-name {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #334155;
+}
+
+.checkout-item-details {
+    -fx-font-size: 13px;
+    -fx-text-fill: #64748b;
+}
+
+.checkout-item-price {
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #475569;
+}

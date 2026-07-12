@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane styleClass="add-bg" stylesheets="@../css/add.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="table.TableAddController">
+    <children>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <content>
+                <VBox spacing="20">
+                    <padding>
+                        <Insets bottom="24" left="24" right="24" top="24" />
+                    </padding>
+
+                    <!-- HEADER -->
+                    <HBox alignment="CENTER_LEFT" spacing="14" styleClass="add-header">
+                        <VBox spacing="3">
+                            <Label styleClass="add-title" text="Thêm bàn ăn mới" />
+                            <Label styleClass="add-subtitle" text="Tạo bàn ăn mới trong hệ thống nhà hàng" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="backBtn" onAction="#handleBack" styleClass="back-btn" text="← Quay lại" />
+                    </HBox>
+
+                    <!-- FORM CARD -->
+                    <VBox spacing="20" styleClass="form-card">
+
+                        <VBox spacing="4">
+                            <Label styleClass="form-section-title" text="🍽 Thông tin bàn ăn" />
+                            <Label styleClass="form-section-subtitle" text="Nhập thông tin chi tiết bàn ăn cần thêm" />
+                        </VBox>
+
+                        <GridPane hgap="20" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                            </columnConstraints>
+
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <HBox spacing="2"><Label styleClass="field-label" text="Mã bàn" /><Label styleClass="field-required" text="*" /></HBox>
+                                <TextField fx:id="txtMaBan" promptText="VD: B001" styleClass="form-field" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <HBox spacing="2"><Label styleClass="field-label" text="Tên bàn" /><Label styleClass="field-required" text="*" /></HBox>
+                                <TextField fx:id="txtTenBan" promptText="VD: Bàn 01" styleClass="form-field" />
+                            </VBox>
+
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label styleClass="field-label" text="Khu vực" />
+                                <ComboBox fx:id="cbKhuVuc" maxWidth="9999" promptText="Chọn khu vực" styleClass="form-combo" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <HBox spacing="2"><Label styleClass="field-label" text="Trạng thái" /><Label styleClass="field-required" text="*" /></HBox>
+                                <ComboBox fx:id="cbTrangThai" maxWidth="9999" promptText="Chọn trạng thái" styleClass="form-combo" />
+                            </VBox>
+                        </GridPane>
+
+                        <!-- Message -->
+                        <Label fx:id="lblMessage" styleClass="message-label" wrapText="true" />
+
+                        <!-- Buttons -->
+                        <HBox alignment="CENTER_RIGHT" spacing="12">
+                            <Button fx:id="cancelBtn" onAction="#handleCancel" styleClass="cancel-btn" text="Hủy bỏ" />
+                            <Button fx:id="saveBtn" onAction="#handleSave" styleClass="save-btn" text="💾 Lưu bàn ăn" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

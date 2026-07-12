@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" styleClass="main-bg" 
+            stylesheets="@../../css/customer/common.css, @../../css/customer/component.css, @../../css/customer/customer_menu.css" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="customer.controller.menu.CustomerMenuController">
+    <children>
+        <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+            </padding>
+            <children>
+                <!-- Header -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="title-label" text="Thực đơn Gourmet Hub" />
+                        <Label styleClass="subtitle-label" text="Khám phá hương vị ẩm thực phong phú của chúng tôi" />
+                    </children>
+                </VBox>
+
+                <!-- Filter Bar -->
+                <HBox alignment="CENTER_LEFT" styleClass="menu-filter-bar">
+                    <children>
+                        <TextField fx:id="txtSearch" id="txtSearch"
+                                   prefHeight="44.0" prefWidth="300.0" minWidth="300.0" minHeight="44.0"
+                                   promptText="Tìm tên món ăn..." styleClass="text-input-field" />
+                        <ComboBox fx:id="cmbCategory" id="cmbCategory"
+                                  prefHeight="44.0" prefWidth="180.0" minWidth="180.0" minHeight="44.0"
+                                  promptText="Loại món" styleClass="combobox-filter" />
+                        <ComboBox fx:id="cmbSort" id="cmbSort"
+                                  prefHeight="44.0" prefWidth="210.0" minWidth="210.0" minHeight="44.0"
+                                  promptText="Sắp xếp" styleClass="combobox-filter" />
+                    </children>
+                </HBox>
+
+                <!-- Scrollable Grid -->
+                <ScrollPane fitToWidth="true" fitToHeight="false" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                            minHeight="200.0" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets top="16.0" />
+                    </VBox.margin>
+                    <content>
+                        <FlowPane fx:id="menuPane" hgap="22.0" vgap="22.0"
+                                  prefWrapLength="1.0" alignment="TOP_LEFT">
+                            <padding>
+                                <Insets bottom="20.0" left="5.0" right="5.0" top="10.0" />
+                            </padding>
+                        </FlowPane>
+                    </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+ 
+<AnchorPane styleClass="add-bg" stylesheets="@../css/add.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="importreceipt.ImportAddController">
+    <children>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <content>
+                <VBox spacing="20">
+                    <padding>
+                        <Insets bottom="24" left="24" right="24" top="24" />
+                    </padding>
+ 
+                    <!-- HEADER -->
+                    <HBox alignment="CENTER_LEFT" spacing="14" styleClass="add-header">
+                        <VBox spacing="3">
+                            <Label styleClass="add-title" text="Tạo phiếu nhập hàng" />
+                            <Label styleClass="add-subtitle" text="Lập chứng từ nhập kho hàng hóa nguyên liệu" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="backBtn" onAction="#handleBack" styleClass="back-btn" text="← Quay lại" />
+                    </HBox>
+ 
+                    <!-- FORM CARD -->
+                    <VBox spacing="20" styleClass="form-card">
+ 
+                        <!-- Section: Thêm nhanh Nhà cung cấp -->
+                        <VBox spacing="10" style="-fx-padding: 0 0 15 0; -fx-border-color: #E2E8F0; -fx-border-width: 0 0 1 0;">
+                            <Label styleClass="form-section-title" text="➕ Thêm nhanh nhà cung cấp mới (nếu chưa có)" />
+                            <GridPane hgap="20" vgap="16">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="ALWAYS" percentWidth="40" />
+                                    <ColumnConstraints hgrow="ALWAYS" percentWidth="40" />
+                                    <ColumnConstraints hgrow="ALWAYS" percentWidth="20" />
+                                </columnConstraints>
+                                <children>
+                                    <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                        <HBox spacing="2"><Label styleClass="field-label" text="Mã nhà cung cấp mới" /></HBox>
+                                        <TextField fx:id="txtNewMaNCC" promptText="VD: NCC005" styleClass="form-field" />
+                                    </VBox>
+                                    <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                        <HBox spacing="2"><Label styleClass="field-label" text="Tên nhà cung cấp mới" /></HBox>
+                                        <TextField fx:id="txtNewTenNCC" promptText="VD: Cty TNHH Đại Nam" styleClass="form-field" />
+                                    </VBox>
+                                    <VBox spacing="4" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                        <HBox spacing="2"><Label styleClass="field-label" text="Thao tác" visible="false" /></HBox>
+                                        <Button fx:id="addNccBtn" onAction="#handleAddNewNCC" maxWidth="9999" prefHeight="40" styleClass="save-btn" text="Thêm NCC" />
+                                    </VBox>
+                                </children>
+                            </GridPane>
+                            <!-- Message for New Supplier -->
+                            <Label fx:id="lblNccMessage" styleClass="message-label" wrapText="true" />
+                        </VBox>
+ 
+                        <!-- Section: Lập phiếu nhập -->
+                        <VBox spacing="4">
+                            <Label styleClass="form-section-title" text="📥 Lập hóa đơn nhập kho" />
+                            <Label styleClass="form-section-subtitle" text="Vui lòng kiểm tra kỹ hóa đơn chứng từ trước khi nhập (*)" />
+                        </VBox>
+ 
+                        <GridPane hgap="20" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                            </columnConstraints>
+ 
+                            <!-- Row 0 -->
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <HBox spacing="2"><Label styleClass="field-label" text="Mã phiếu nhập" /><Label styleClass="field-required" text="*" /></HBox>
+                                <TextField fx:id="txtMaHang" promptText="VD: PN005" styleClass="form-field" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <HBox spacing="2"><Label styleClass="field-label" text="Chọn nhà cung cấp" /><Label styleClass="field-required" text="*" /></HBox>
+                                <ComboBox fx:id="cbNhaCungCap" maxWidth="9999" promptText="Chọn nhà cung cấp đối tác" styleClass="form-combo" />
+                            </VBox>
+ 
+                            <!-- Row 1 -->
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <HBox spacing="2"><Label styleClass="field-label" text="Ngày nhập hàng" /><Label styleClass="field-required" text="*" /></HBox>
+                                <TextField fx:id="txtNgayNhap" promptText="VD: yyyy-MM-dd HH:mm:ss" styleClass="form-field" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <HBox spacing="2"><Label styleClass="field-label" text="Tổng tiền thanh toán (VNĐ)" /><Label styleClass="field-required" text="*" /></HBox>
+                                <TextField fx:id="txtTongTien" promptText="VD: 5500000" styleClass="form-field" />
+                            </VBox>
+                        </GridPane>
+ 
+                        <!-- Message -->
+                        <Label fx:id="lblMessage" styleClass="message-label" wrapText="true" />
+ 
+                        <!-- Buttons -->
+                        <HBox alignment="CENTER_RIGHT" spacing="12">
+                            <Button fx:id="cancelBtn" onAction="#handleCancel" styleClass="cancel-btn" text="Hủy bỏ" />
+                            <Button fx:id="saveBtn" onAction="#handleSave" styleClass="save-btn" text="💾 Lưu phiếu nhập" />
+                        </HBox>
+                    </VBox>
+ 
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane styleClass="main-bg" stylesheets="@../css/profile.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="profile.ProfileController">
+    <children>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="profile-scroll" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <content>
+                <VBox spacing="20" style="-fx-padding: 20;">
+                    
+                    <!-- TOP BAR -->
+                    <HBox alignment="CENTER_LEFT" spacing="14" styleClass="topbar">
+                        <VBox spacing="3">
+                            <Label styleClass="dashboard-title" text="Hồ sơ cá nhân" />
+                            <Label styleClass="dashboard-subtitle" text="Thông tin tài khoản và nhân viên của bạn" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                    </HBox>
+
+                    <!-- MAIN LAYOUT: TWO COLUMNS -->
+                    <GridPane hgap="20" vgap="20" VBox.vgrow="ALWAYS">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="35" />
+                            <ColumnConstraints percentWidth="65" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints vgrow="ALWAYS" />
+                        </rowConstraints>
+                        <children>
+                            <!-- LEFT COLUMN: AVATAR CARD -->
+                            <VBox spacing="20" styleClass="profile-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <children>
+                                    <VBox alignment="CENTER" spacing="15" styleClass="avatar-wrapper" VBox.vgrow="ALWAYS">
+                                        <Label fx:id="lblAvatarInitials" styleClass="avatar-circle" text="-" />
+                                        <Label fx:id="lblEmpNameLarge" styleClass="emp-name-large" text="Đang tải..." />
+                                        <Label fx:id="lblEmpRoleLarge" styleClass="emp-role-large" text="Chức vụ" />
+                                        <Label fx:id="lblStatusTag" styleClass="status-tag" text="Đang làm việc" />
+                                    </VBox>
+                                </children>
+                            </VBox>
+
+                            <!-- RIGHT COLUMN: DETAILED INFO & PASSWORD CHANGE -->
+                            <VBox spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <children>
+                                    <!-- PERSONAL DETAILS CARD -->
+                                    <VBox spacing="18" styleClass="profile-card" VBox.vgrow="ALWAYS">
+                                        <children>
+                                            <Label styleClass="section-title" text="Thông tin chi tiết" />
+                                            
+                                            <GridPane hgap="16" vgap="14" VBox.vgrow="ALWAYS">
+                                                <columnConstraints>
+                                                    <ColumnConstraints minWidth="150" prefWidth="180" />
+                                                    <ColumnConstraints hgrow="ALWAYS" />
+                                                </columnConstraints>
+                                                <rowConstraints>
+                                                    <RowConstraints minHeight="30" />
+                                                    <RowConstraints minHeight="30" />
+                                                    <RowConstraints minHeight="30" />
+                                                    <RowConstraints minHeight="30" />
+                                                    <RowConstraints minHeight="30" />
+                                                    <RowConstraints minHeight="30" />
+                                                    <RowConstraints minHeight="30" />
+                                                    <RowConstraints minHeight="30" />
+                                                </rowConstraints>
+                                                <children>
+                                                    <Label styleClass="info-label" text="Mã nhân viên:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                                    <Label fx:id="lblMaNV" styleClass="info-value" text="-" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                                                    
+                                                    <Label styleClass="info-label" text="Họ và tên:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                                                    <Label fx:id="lblHoTen" styleClass="info-value" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                                                    
+                                                    <Label styleClass="info-label" text="Ngày sinh:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                                                    <Label fx:id="lblNgaySinh" styleClass="info-value" text="-" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                                                    
+                                                    <Label styleClass="info-label" text="Số điện thoại:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                                                    <Label fx:id="lblSdt" styleClass="info-value" text="-" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                                                    
+                                                    <Label styleClass="info-label" text="Email:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                                                    <Label fx:id="lblEmail" styleClass="info-value" text="-" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                                                    
+                                                    <Label styleClass="info-label" text="Quê quán:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                                                    <Label fx:id="lblQueQuan" styleClass="info-value" text="-" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                                                    
+                                                    <Label styleClass="info-label" text="Chức vụ:" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                                                    <Label fx:id="lblChucVu" styleClass="info-value" text="-" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                                                    
+                                                    <Label styleClass="info-label" text="Tài khoản đăng nhập:" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                                                    <Label fx:id="lblUsername" styleClass="info-value" text="-" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+                                                </children>
+                                            </GridPane>
+                                        </children>
+                                    </VBox>
+
+                                    <!-- CHANGE PASSWORD CARD -->
+                                    <VBox spacing="14" styleClass="profile-card">
+                                        <children>
+                                            <Label styleClass="section-title" text="Đổi mật khẩu" />
+                                            
+                                            <HBox spacing="14" alignment="CENTER_LEFT">
+                                                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                                                    <Label styleClass="input-label" text="Mật khẩu cũ *" />
+                                                    <PasswordField fx:id="txtOldPassword" styleClass="password-field-box" promptText="Nhập mật khẩu cũ" />
+                                                </VBox>
+                                                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                                                    <Label styleClass="input-label" text="Mật khẩu mới *" />
+                                                    <PasswordField fx:id="txtNewPassword" styleClass="password-field-box" promptText="Nhập mật khẩu mới" />
+                                                </VBox>
+                                                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                                                    <Label styleClass="input-label" text="Xác nhận mật khẩu *" />
+                                                    <PasswordField fx:id="txtConfirmPassword" styleClass="password-field-box" promptText="Nhập lại mật khẩu mới" />
+                                                </VBox>
+                                            </HBox>
+                                            
+                                            <HBox spacing="10" alignment="CENTER_RIGHT">
+                                                <Label fx:id="lblMessage" styleClass="message-label" wrapText="true" HBox.hgrow="ALWAYS" maxWidth="300" />
+                                                <Button onAction="#handleChangePassword" styleClass="change-pwd-btn" text="Cập nhật mật khẩu" />
+                                            </HBox>
+                                        </children>
+                                    </VBox>
+                                </children>
+                            </VBox>
+                        </children>
+                    </GridPane>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

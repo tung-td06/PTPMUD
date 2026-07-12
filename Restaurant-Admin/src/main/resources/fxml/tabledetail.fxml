@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+ 
+<AnchorPane styleClass="add-bg" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="table.TableDetailController">
+    <stylesheets>
+        <URL value="@../css/add.css" />
+        <URL value="@../css/table.css" />
+    </stylesheets>
+    <children>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <content>
+                <VBox spacing="20">
+                    <padding>
+                        <Insets bottom="24" left="24" right="24" top="24" />
+                    </padding>
+ 
+                    <!-- HEADER -->
+                    <HBox alignment="CENTER_LEFT" spacing="14" styleClass="add-header">
+                        <VBox spacing="3">
+                            <Label styleClass="add-title" text="Chi tiết bàn ăn" />
+                            <Label styleClass="add-subtitle" text="Thông tin chi tiết và trạng thái phục vụ hiện tại" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnClose" onAction="#handleClose" styleClass="back-btn" text="← Quay lại" />
+                    </HBox>
+ 
+                    <!-- FORM CARD -->
+                    <VBox spacing="24" styleClass="form-card">
+                        
+                        <!-- SECTION 1: THÔNG TIN CHUNG -->
+                        <VBox spacing="4">
+                            <Label styleClass="form-section-title" text="📋 Thông tin chung" />
+                            <Label styleClass="form-section-subtitle" text="Chi tiết các thông tin cơ bản của bàn ăn" />
+                        </VBox>
+ 
+                        <GridPane hgap="20" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                            </columnConstraints>
+                            <children>
+                                <!-- Row 0 -->
+                                <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <Label styleClass="field-label" text="Mã bàn" />
+                                    <Label fx:id="lblMaBan" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f1f5f9; -fx-opacity: 0.85; -fx-font-weight: bold;" text="--" />
+                                </VBox>
+                                <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <Label styleClass="field-label" text="Tên bàn" />
+                                    <Label fx:id="lblTenBan" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f1f5f9; -fx-opacity: 0.85; -fx-font-weight: bold;" text="--" />
+                                </VBox>
+ 
+                                <!-- Row 1 -->
+                                <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <Label styleClass="field-label" text="Khu vực" />
+                                    <Label fx:id="lblKhuVuc" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f1f5f9; -fx-opacity: 0.85;" text="--" />
+                                </VBox>
+                                <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Label styleClass="field-label" text="Trạng thái" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="44" styleClass="form-field" style="-fx-background-color: #f1f5f9; -fx-opacity: 0.85;">
+                                        <children>
+                                            <Label fx:id="lblTrangThai" style="-fx-font-weight: bold;" text="--" />
+                                        </children>
+                                    </HBox>
+                                </VBox>
+ 
+                                <!-- Row 2 -->
+                                <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                    <Label styleClass="field-label" text="Số người tối đa" />
+                                    <Label fx:id="lblSoNguoiToiDa" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f1f5f9; -fx-opacity: 0.85;" text="--" />
+                                </VBox>
+                                <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <Label styleClass="field-label" text="Ghi chú" />
+                                    <Label fx:id="lblGhiChu" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f1f5f9; -fx-opacity: 0.85;" text="--" />
+                                </VBox>
+                            </children>
+                        </GridPane>
+ 
+                        <Region styleClass="form-separator" />
+ 
+                        <!-- SECTION 2: CHI TIẾT THEO TRẠNG THÁI -->
+                        <VBox spacing="14">
+                            <Label styleClass="form-section-title" text="🍽 Trạng thái chi tiết" />
+                            
+                            <!-- CONDITIONAL 1: ĐANG DÙNG / CÓ KHÁCH -->
+                            <VBox fx:id="vboxOccupied" spacing="20">
+                                <GridPane hgap="20" vgap="16">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                        <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                    </columnConstraints>
+                                    <children>
+                                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                            <Label styleClass="field-label" text="Mã đặt bàn" />
+                                            <Label fx:id="lblMaHoaDon" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                            <Label styleClass="field-label" text="Mã khách hàng" />
+                                            <Label fx:id="lblMaOrder" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                            <Label styleClass="field-label" text="Thời gian đến thực tế" />
+                                            <Label fx:id="lblThoiGianMo" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                            <Label styleClass="field-label" text="Tên khách hàng (SĐT)" />
+                                            <Label fx:id="lblKhachHangDung" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                            <Label styleClass="field-label" text="Số người" />
+                                            <Label fx:id="lblNhanVienPhucVu" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <Label styleClass="field-label" text="Trạng thái đặt bàn" />
+                                            <Label fx:id="lblTongSoMon" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                    </children>
+                                </GridPane>
+                                
+                                <VBox spacing="8">
+                                    <Label styleClass="field-label" style="-fx-font-weight: bold; -fx-text-fill: #0f1f44;" text="⏰ Thời gian kết thúc" />
+                                    <Label fx:id="lblTongTienTamTinh" style="-fx-font-size: 15px; -fx-font-weight: 700; -fx-text-fill: #0f1f44; -fx-padding: 10 16 10 16; -fx-background-color: #f8fafc; -fx-background-radius: 8; -fx-border-color: #e2e8f0; -fx-border-width: 1; -fx-border-radius: 8;" text="--" />
+                                </VBox>
+                            </VBox>
+
+ 
+                            <!-- CONDITIONAL 2: ĐẶT TRƯỚC / ĐÃ ĐẶT -->
+                            <VBox fx:id="vboxReserved" spacing="20">
+                                <GridPane hgap="20" vgap="16">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                        <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                    </columnConstraints>
+                                    <children>
+                                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                            <Label styleClass="field-label" text="Tên khách đặt" />
+                                            <Label fx:id="lblKhachDat" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                            <Label styleClass="field-label" text="Số điện thoại" />
+                                            <Label fx:id="lblSdtKhachDat" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                            <Label styleClass="field-label" text="Số lượng khách đặt" />
+                                            <Label fx:id="lblSoNguoiDat" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                            <Label styleClass="field-label" text="Thời gian đặt bàn" />
+                                            <Label fx:id="lblThoiGianDat" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                            <Label styleClass="field-label" text="Thời gian đến thực tế" />
+                                            <Label fx:id="lblThoiGianXacNhan" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <Label styleClass="field-label" text="Thời gian đặt đến (dự kiến)" />
+                                            <Label fx:id="lblThoiGianDenDuKien" prefHeight="44" styleClass="form-field" style="-fx-alignment: CENTER_LEFT; -fx-background-color: #f8fafc; -fx-border-color: #e2e8f0; -fx-border-radius: 8;" text="--" />
+                                        </VBox>
+                                    </children>
+                                </GridPane>
+                            </VBox>
+ 
+                            <!-- CONDITIONAL 3: TRỐNG -->
+                            <VBox fx:id="vboxEmpty" alignment="CENTER" spacing="10" style="-fx-background-color: #f8fafc; -fx-padding: 30; -fx-background-radius: 10; -fx-border-color: #e2e8f0; -fx-border-width: 1; -fx-border-radius: 10;">
+                                <children>
+                                    <Label style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #64748b;" text="🍽 Bàn ăn hiện tại đang trống." />
+                                </children>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

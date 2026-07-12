@@ -1,0 +1,3 @@
+/* billdetail.css — Bill Detail page styles.
+   All styles inherited via chain: billdetail.css -> bill.css -> employee.css -> common.css */
+@import "bill.css";

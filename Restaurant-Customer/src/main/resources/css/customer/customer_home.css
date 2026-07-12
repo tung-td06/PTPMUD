@@ -1,0 +1,65 @@
+/* Customer Home Page Styles */
+
+.banner-pane {
+    -fx-background-color: linear-gradient(to right, #1e293b, #0f172a);
+    -fx-background-image: url("/images/restaurant_banner.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-radius: 16;
+    -fx-min-height: 180;
+    -fx-pref-height: 200;
+}
+
+.banner-overlay {
+    -fx-background-color: rgba(15, 23, 42, 0.4);
+    -fx-background-radius: 16;
+    -fx-padding: 45;
+    -fx-alignment: center-left;
+}
+
+.banner-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: 800;
+    -fx-text-fill: white;
+}
+
+.banner-subtitle {
+    -fx-font-size: 16px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #f1f5f9;
+}
+
+.category-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Categories chips */
+.category-chip {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 16;
+    -fx-padding: 8 18 8 18;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #475569;
+    -fx-cursor: hand;
+}
+
+.category-chip:hover {
+    -fx-background-color: #f8fafc;
+    -fx-text-fill: #0f172a;
+    -fx-border-color: #cbd5e1;
+}
+
+.category-chip-active {
+    -fx-background-color: #f3c13a;
+    -fx-text-fill: white;
+    -fx-border-color: #f3c13a;
+    -fx-effect: dropshadow(gaussian, rgba(243, 193, 58, 0.25), 8, 0, 0, 3);
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane styleClass="main-bg" stylesheets="@../css/order.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="order.OrderController">
+    <children>
+        <VBox spacing="20" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+            
+            <!-- HEADER (TOP BAR) -->
+            <HBox alignment="CENTER_LEFT" spacing="14" styleClass="topbar">
+                <VBox spacing="3">
+                    <Label styleClass="dashboard-title" text="Món đang Order" />
+                    <Label styleClass="dashboard-subtitle" text="Theo dõi món ăn của khách hàng" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <ComboBox fx:id="sortCombo" prefWidth="180" promptText="Sắp xếp" styleClass="search-box" />
+                    <DatePicker fx:id="datePicker" prefWidth="160" promptText="Chọn ngày" styleClass="date-picker-box" />
+                    <TextField fx:id="searchField" prefWidth="280" promptText="Tìm kiếm bàn, món ăn, hóa đơn..." styleClass="search-box" />
+                </HBox>
+            </HBox>
+
+            <!-- STATS CARDS -->
+            <HBox spacing="12" VBox.vgrow="SOMETIMES">
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-title" text="🟡 Đang chờ" />
+                    <Label fx:id="preparingCountLabel" styleClass="card-value" text="0" />
+                    <Label styleClass="warning-text" text="Chờ chuẩn bị món" />
+                </VBox>
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-title" text="🔵 Đang chế biến" />
+                    <Label fx:id="cookingCountLabel" styleClass="card-value" text="0" />
+                    <Label styleClass="success-text" text="Đang nấu trong bếp" style="-fx-text-fill: #3b82f6;" />
+                </VBox>
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-title" text="🟢 Hoàn thành" />
+                    <Label fx:id="completedCountLabel" styleClass="card-value" text="0" />
+                    <Label styleClass="success-text" text="Chờ phục vụ bàn" />
+                </VBox>
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-title" text="⚪ Đã phục vụ" />
+                    <Label fx:id="servedCountLabel" styleClass="card-value" text="0" />
+                    <Label styleClass="success-text" text="Khách đã nhận" style="-fx-text-fill: #64748b;" />
+                </VBox>
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label styleClass="card-title" text="📋 Tổng món" />
+                    <Label fx:id="processingTotalLabel" styleClass="card-value" text="0" />
+                    <Label styleClass="warning-text" text="Tổng số lượng món ăn" style="-fx-text-fill: #f59e0b;" />
+                </VBox>
+            </HBox>
+
+            <!-- FILTER BAR -->
+            <HBox spacing="12" alignment="CENTER_LEFT" styleClass="filter-bar">
+                <ComboBox fx:id="tableCombo" prefWidth="150" promptText="Bàn ăn" styleClass="search-box" />
+                <ComboBox fx:id="statusCombo" prefWidth="160" promptText="Trạng thái" styleClass="search-box" />
+            </HBox>
+
+            <!-- ORDER CARDS CONTAINER -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="cards-scroll">
+                <content>
+                    <FlowPane fx:id="cardsContainer" hgap="20" vgap="20" styleClass="cards-container">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10" />
+                        </padding>
+                    </FlowPane>
+                </content>
+            </ScrollPane>
+            
+        </VBox>
+    </children>
+</AnchorPane>

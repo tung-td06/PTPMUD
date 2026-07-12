@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane styleClass="add-bg" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="order.OrderAddController">
+    <stylesheets>
+        <URL value="@../css/add.css" />
+        <URL value="@../css/order.css" />
+    </stylesheets>
+    <children>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <content>
+                <VBox spacing="20">
+                    <padding>
+                        <Insets bottom="24" left="24" right="24" top="24" />
+                    </padding>
+
+                    <!-- HEADER -->
+                    <HBox alignment="CENTER_LEFT" spacing="14" styleClass="add-header">
+                        <VBox spacing="3">
+                            <Label styleClass="add-title" text="Thêm Order mới" />
+                            <Label styleClass="add-subtitle" text="Tạo đơn hàng gọi món mới cho thực khách" />
+                        </VBox>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="backBtn" onAction="#handleBack" styleClass="back-btn" text="← Quay lại" />
+                    </HBox>
+
+                    <!-- FORM CARD -->
+                    <VBox spacing="24" styleClass="form-card">
+                        
+                        <!-- SECTION 1: THÔNG TIN CHUNG -->
+                        <VBox spacing="4">
+                            <Label styleClass="form-section-title" text="📋 Thông tin đơn hàng" />
+                            <Label styleClass="form-section-subtitle" text="Vui lòng điền các thông tin cơ bản cho đơn hàng" />
+                        </VBox>
+
+                        <GridPane hgap="20" vgap="16">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                            </columnConstraints>
+
+                            <!-- Row 0 -->
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <HBox spacing="2">
+                                    <Label styleClass="field-label" text="Mã Order" />
+                                    <Label styleClass="field-required" text="*" />
+                                </HBox>
+                                <TextField fx:id="txtMaOrder" promptText="VD: ORD007" styleClass="form-field" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <HBox spacing="2">
+                                    <Label styleClass="field-label" text="Bàn ăn" />
+                                    <Label styleClass="field-required" text="*" />
+                                </HBox>
+                                <ComboBox fx:id="cbBanAn" maxWidth="9999" promptText="Chọn bàn" styleClass="form-combo" />
+                            </VBox>
+
+                            <!-- Row 1 -->
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <HBox spacing="2">
+                                    <Label styleClass="field-label" text="Nhân viên lập" />
+                                    <Label styleClass="field-required" text="*" />
+                                </HBox>
+                                <ComboBox fx:id="cbNhanVien" maxWidth="9999" promptText="Chọn nhân viên" styleClass="form-combo" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label styleClass="field-label" text="Mã hóa đơn liên kết (Nếu có)" />
+                                <TextField fx:id="txtMaHD" promptText="VD: HD001 (không bắt buộc)" styleClass="form-field" />
+                            </VBox>
+
+                            <!-- Row 2 -->
+                            <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                <HBox spacing="2">
+                                    <Label styleClass="field-label" text="Ngày tạo" />
+                                    <Label styleClass="field-required" text="*" />
+                                </HBox>
+                                <DatePicker fx:id="dpNgayTao" maxWidth="9999" promptText="Chọn ngày" styleClass="form-datepicker" />
+                            </VBox>
+                            <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <HBox spacing="2">
+                                    <Label styleClass="field-label" text="Trạng thái đơn hàng" />
+                                    <Label styleClass="field-required" text="*" />
+                                </HBox>
+                                <ComboBox fx:id="cbTrangThai" maxWidth="9999" promptText="Chọn trạng thái" styleClass="form-combo" />
+                            </VBox>
+                        </GridPane>
+
+                        <Region styleClass="form-separator" />
+
+                        <!-- SECTION 2: THÊM MÓN ĂN -->
+                        <VBox spacing="14">
+                            <VBox spacing="4">
+                                <Label styleClass="form-section-title" text="🍔 Chọn món ăn gọi thêm" />
+                                <Label styleClass="form-section-subtitle" text="Tìm chọn món ăn trong thực đơn để thêm vào đơn hàng này" />
+                            </VBox>
+
+                            <HBox alignment="BOTTOM_LEFT" spacing="20">
+                                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="field-label" text="Món ăn" />
+                                    <ComboBox fx:id="cbMonAn" maxWidth="9999" promptText="Tìm chọn món ăn..." styleClass="form-combo" />
+                                </VBox>
+                                <VBox spacing="4" prefWidth="150">
+                                    <Label styleClass="field-label" text="Số lượng" />
+                                    <TextField fx:id="txtSoLuong" alignment="CENTER" prefHeight="44" promptText="Số lượng" styleClass="form-field" text="1" />
+                                </VBox>
+                                <Button onAction="#handleAddItem" prefHeight="44" styleClass="create-btn" text="➕ Thêm vào đơn" />
+                            </HBox>
+
+                            <!-- TABLE OF ITEMS -->
+                            <VBox spacing="10">
+                                <Label styleClass="field-label" style="-fx-font-size: 14px;" text="Danh sách món đã chọn cho đơn hàng này:" />
+                                <TableView fx:id="detailTable" minHeight="200" prefHeight="250" styleClass="modern-table">
+                                    <columns>
+                                        <TableColumn fx:id="colStt" minWidth="50" prefWidth="50" text="STT" />
+                                        <TableColumn fx:id="colMamon" minWidth="90" prefWidth="100" text="Mã món" />
+                                        <TableColumn fx:id="colTenmon" minWidth="180" prefWidth="220" text="Tên món ăn" />
+                                        <TableColumn fx:id="colSoluong" minWidth="80" prefWidth="90" text="Số lượng" />
+                                        <TableColumn fx:id="colDongia" minWidth="120" prefWidth="130" text="Đơn giá" />
+                                        <TableColumn fx:id="colThanhTien" minWidth="130" prefWidth="140" text="Thành tiền" />
+                                        <TableColumn fx:id="colTrangThaiMon" minWidth="120" prefWidth="130" text="Trạng thái món" />
+                                        <TableColumn fx:id="colAction" minWidth="80" prefWidth="85" text="Hành động" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </VBox>
+
+                            <!-- SUMMARY SECTION -->
+                            <HBox alignment="CENTER_RIGHT" spacing="24" style="-fx-background-color: #f8fafc; -fx-padding: 14 20 14 20; -fx-background-radius: 10; -fx-border-color: #e2e8f0; -fx-border-width: 1; -fx-border-radius: 10;">
+                                <HBox spacing="6">
+                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #64748b;" text="Tổng số món:" />
+                                    <Label fx:id="lblTotalItems" style="-fx-font-weight: bold; -fx-text-fill: #0f1f44;" text="0" />
+                                </HBox>
+                                <HBox spacing="6">
+                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #64748b;" text="Tổng số lượng:" />
+                                    <Label fx:id="lblTotalQuantity" style="-fx-font-weight: bold; -fx-text-fill: #0f1f44;" text="0" />
+                                </HBox>
+                                <HBox spacing="6">
+                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #64748b;" text="Tổng tiền tạm tính:" />
+                                    <Label fx:id="lblTotalAmount" style="-fx-font-size: 15px; -fx-font-weight: 900; -fx-text-fill: #2563eb;" text="0 VNĐ" />
+                                </HBox>
+                            </HBox>
+                        </VBox>
+
+                        <Label fx:id="lblMessage" styleClass="message-label" wrapText="true" />
+
+                        <!-- BUTTONS ACTION -->
+                        <HBox alignment="CENTER_RIGHT" spacing="12">
+                            <Button fx:id="cancelBtn" onAction="#handleCancel" styleClass="cancel-btn" text="Hủy bỏ" />
+                            <Button fx:id="saveBtn" onAction="#handleSave" styleClass="save-btn" text="💾 Lưu Order" />
+                        </HBox>
+                    </VBox>
+
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

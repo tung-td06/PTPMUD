@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" styleClass="main-bg" 
+            stylesheets="@../../css/customer/common.css, @../../css/customer/component.css, @../../css/customer/customer_orderdetail.css" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="customer.controller.orderdetail.CustomerOrderDetailController">
+    <children>
+        <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+            </padding>
+            <children>
+                <!-- Title -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label fx:id="lblOrderCode" styleClass="title-label" text="Chi tiết đơn gọi món" />
+                        <Label styleClass="subtitle-label" text="Trạng thái thực tế từ nhà bếp và thông tin hóa đơn" />
+                    </children>
+                </VBox>
+
+                <!-- Timeline Container -->
+                <VBox styleClass="order-detail-card">
+                    <children>
+                        <Label styleClass="card-section-title" text="Tiến trình chế biến" />
+                        
+                        <HBox styleClass="timeline-container">
+                            <children>
+                                <!-- Step 1: Pending -->
+                                <VBox fx:id="stepPending" styleClass="timeline-step">
+                                    <children>
+                                        <HBox fx:id="circlePending" styleClass="step-circle"><children><Label styleClass="step-icon" text="1" /></children></HBox>
+                                        <Label fx:id="lblPending" styleClass="step-label" text="Đang xử lý" />
+                                    </children>
+                                </VBox>
+                                <Label fx:id="arrow1" styleClass="timeline-arrow" text="↓" />
+
+                                <!-- Step 2: Processing -->
+                                <VBox fx:id="stepProcessing" styleClass="timeline-step">
+                                    <children>
+                                        <HBox fx:id="circleProcessing" styleClass="step-circle"><children><Label styleClass="step-icon" text="2" /></children></HBox>
+                                        <Label fx:id="lblProcessing" styleClass="step-label" text="Đang chế biến" />
+                                    </children>
+                                </VBox>
+                                <Label fx:id="arrow2" styleClass="timeline-arrow" text="↓" />
+
+                                <!-- Step 3: Ready (Da xong) -->
+                                <VBox fx:id="stepReady" styleClass="timeline-step">
+                                    <children>
+                                        <HBox fx:id="circleReady" styleClass="step-circle"><children><Label styleClass="step-icon" text="3" /></children></HBox>
+                                        <Label fx:id="lblReady" styleClass="step-label" text="Đã xong" />
+                                    </children>
+                                </VBox>
+                                <Label fx:id="arrow3" styleClass="timeline-arrow" text="↓" />
+
+                                <!-- Step 4: Served -->
+                                <VBox fx:id="stepServed" styleClass="timeline-step">
+                                    <children>
+                                        <HBox fx:id="circleServed" styleClass="step-circle"><children><Label styleClass="step-icon" text="4" /></children></HBox>
+                                        <Label fx:id="lblServed" styleClass="step-label" text="Đã phục vụ" />
+                                    </children>
+                                </VBox>
+                                <Label fx:id="arrow4" styleClass="timeline-arrow" text="↓" />
+
+                                <!-- Step 5: Completed -->
+                                <VBox fx:id="stepCompleted" styleClass="timeline-step">
+                                    <children>
+                                        <HBox fx:id="circleCompleted" styleClass="step-circle"><children><Label styleClass="step-icon" text="5" /></children></HBox>
+                                        <Label fx:id="lblCompleted" styleClass="step-label" text="Hoàn thành" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <!-- Order items list card -->
+                <VBox styleClass="order-detail-card" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label styleClass="card-section-title-bordered" text="Danh sách món ăn đã gọi" />
+                        
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+                            <content>
+                                <VBox fx:id="itemsContainer" spacing="5.0" />
+                            </content>
+                        </ScrollPane>
+
+                        <!-- Bill details -->
+                        <HBox alignment="CENTER_RIGHT" styleClass="calculation-divider">
+                            <children>
+                                <Label styleClass="form-label" text="Tổng tiền thanh toán: " />
+                                <Label fx:id="lblTotalPrice" styleClass="total-price-large" text="0đ" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
+                <!-- Actions -->
+                <HBox spacing="15.0">
+                    <children>
+                        <Button fx:id="btnBack" onAction="#handleBack" styleClass="btn-secondary" text="⬅ Quay lại" prefWidth="120.0" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnPay" onAction="#handlePay" styleClass="btn-primary" text="💳 Thanh toán ngay" visible="false" managed="false" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

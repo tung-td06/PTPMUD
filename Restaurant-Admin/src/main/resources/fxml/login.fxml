@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Login.LoginController"
+      stylesheets="@../css/login.css"
+      styleClass="root"
+      prefWidth="1600"
+      prefHeight="900">
+
+    <StackPane styleClass="left-pane"
+               HBox.hgrow="ALWAYS" />
+
+    <VBox alignment="CENTER"
+          styleClass="right-pane"
+          HBox.hgrow="SOMETIMES">
+        <children>
+            <VBox alignment="CENTER"
+                  spacing="22"
+                  prefWidth="430"
+                  maxWidth="430"
+                  styleClass="login-card">
+                
+                <padding>
+                    <Insets top="45" right="40" bottom="45" left="40"/>
+                </padding>
+
+                <ImageView fitWidth="240" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/logo.png"/>
+                    </image>
+                </ImageView>
+
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="Đăng nhập" styleClass="title-label"/>
+                    <Label text="Vui lòng đăng nhập để tiếp tục" styleClass="sub-label"/>
+                </VBox>
+
+                <TextField fx:id="txtUsername"
+                           promptText="Tên đăng nhập"
+                           styleClass="login-field"
+                           maxWidth="1.7976931348623157E308"/>
+
+                <PasswordField fx:id="txtPassword"
+                               promptText="Mật khẩu"
+                               styleClass="login-field"
+                               maxWidth="1.7976931348623157E308"/>
+
+                <Button fx:id="btnLogin"
+                        text="ĐĂNG NHẬP"
+                        onAction="#handleLogin"
+                        maxWidth="1.7976931348623157E308"
+                        styleClass="login-button"/>
+
+                <Label fx:id="lblMessage"
+                       text=""
+                       wrapText="true"
+                       alignment="CENTER"
+                       maxWidth="1.7976931348623157E308"
+                       styleClass="message-label"
+                       visible="false"
+                       managed="false"/>
+            </VBox>
+        </children>
+    </VBox>
+</HBox>

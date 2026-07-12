@@ -1,0 +1,3 @@
+/* category.css — Category management page styles.
+   All common styles are inherited from common.css via employee.css. */
+@import "employee.css";

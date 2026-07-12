@@ -1,0 +1,3 @@
+/* employee.css — Imports common.css to maintain backward compatibility.
+   employee.fxml uses this stylesheet directly. */
+@import "common.css";

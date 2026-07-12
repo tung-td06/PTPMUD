@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" styleClass="main-bg" 
+            stylesheets="@../../css/customer/common.css, @../../css/customer/component.css, @../../css/customer/food_detail.css" 
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="customer.controller.fooddetail.FoodDetailController">
+    <children>
+        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+            </padding>
+            <children>
+                <HBox spacing="40.0" styleClass="detail-container" maxWidth="960.0" alignment="CENTER_LEFT">
+                    <padding>
+                        <Insets bottom="35.0" left="35.0" right="35.0" top="35.0" />
+                    </padding>
+                    <children>
+                        <!-- Left Panel: Image -->
+                        <VBox alignment="CENTER">
+                            <children>
+                                <ImageView fx:id="imgFood" fitHeight="340.0" fitWidth="420.0" 
+                                           preserveRatio="false" styleClass="detail-img-view" />
+                            </children>
+                        </VBox>
+
+                        <!-- Right Panel: Info & Action -->
+                        <VBox spacing="18.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox spacing="5.0">
+                                    <children>
+                                        <Label fx:id="lblCategory" styleClass="food-category-label" text="LOẠI MÓN" />
+                                        <Label fx:id="lblTitle" styleClass="food-title-label" text="Tên món ăn chi tiết" />
+                                        <Label fx:id="lblPrice" styleClass="food-price-label" text="250.000 VNĐ" />
+                                    </children>
+                                </VBox>
+
+                                <VBox spacing="8.0">
+                                    <children>
+                                         <Label styleClass="form-label" text="Mô tả món ăn" />
+                                        <Label fx:id="lblDescription" styleClass="food-desc-label" 
+                                               text="Món ăn được chế biến từ những nguyên liệu tươi ngon nhất, tuyển chọn kỹ lưỡng hàng ngày. Hương vị đậm đà truyền thống kết hợp hài hòa cùng cách trình bày tinh tế, mang lại trải nghiệm ẩm thực đẳng cấp cho quý khách." />
+                                    </children>
+                                </VBox>
+
+                                <!-- Quantity Selector -->
+                                <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                    <children>
+                                         <Label styleClass="form-label" text="Số lượng:" />
+                                        <HBox styleClass="quantity-box">
+                                            <children>
+                                                <Button fx:id="btnMinus" onAction="#handleMinus" styleClass="quantity-btn" text="-" />
+                                                <Label fx:id="lblQuantity" styleClass="quantity-label" text="1" />
+                                                <Button fx:id="btnPlus" onAction="#handlePlus" styleClass="quantity-btn" text="+" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+
+                                <!-- Note -->
+                                <VBox spacing="8.0">
+                                    <children>
+                                         <Label styleClass="form-label" text="Ghi chú yêu cầu thêm:" />
+                                        <TextField fx:id="txtNote" prefHeight="44.0" 
+                                                   promptText="Ví dụ: Không hành, ít cay, thêm đá..." styleClass="text-input-field" />
+                                    </children>
+                                </VBox>
+
+                                <!-- Buttons -->
+                                 <HBox spacing="15.0" alignment="CENTER_LEFT">
+                                     <padding>
+                                         <Insets top="10.0" />
+                                     </padding>
+                                    <children>
+                                        <Button fx:id="btnBack" onAction="#handleBack" styleClass="btn-secondary" text="Quay lại" prefWidth="120.0" />
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Button fx:id="btnAddToCart" onAction="#handleAddToCart" styleClass="btn-primary" text="Thêm giỏ hàng" prefWidth="180.0" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
