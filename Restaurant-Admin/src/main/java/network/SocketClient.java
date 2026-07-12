@@ -9,7 +9,7 @@ import java.net.Socket;
 public class SocketClient {
 
     // Địa chỉ IP Wi-Fi của máy chạy Server và Cổng Port tương ứng
-    public static final String SERVER_IP = "192.168.1.7";
+    public static final String SERVER_IP = "localhost";
     private static final int SERVER_PORT = 9999;
 
     private static SocketClient instance;
